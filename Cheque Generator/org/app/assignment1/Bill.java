@@ -26,10 +26,19 @@ public class Bill implements Payable {
 	public String dueDate() {
 		return month + "," + day + "," + year;
 	}
+	
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
 
 	@Override
 	public void displayCheque() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Payable to: " + getCompanyName());
+        System.out.println("Due date: " + dueDate());
+        System.out.println("Amount: $" + getAmount());
 	}
 }

@@ -35,7 +35,7 @@ public class PartTimeEmployee extends Employee {
 
 	@Override
 	public void displayCheque() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Payable to: " + getPayableTo());
+		System.out.println("Amount: $" + getAmount());
 	}
 }
