@@ -5,5 +5,6 @@ public interface Payable {
 
 	String getPayableTo();
 
+	// Method to display a cheque
 	void displayCheque();
 }

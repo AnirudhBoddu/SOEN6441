@@ -41,6 +41,9 @@ public class Menu {
 		System.out.println("Thanks!");
 	}
 
+	/**
+	 * Method to populate test values on fly
+	 */
 	private static void populateTestValues() {
 		ArrayList<Payable> testPayables = new ArrayList<Payable>();
 		testPayables.add(new FullTimeEmployee("Cersei", "Lannister", 35, 1001, 60000));
@@ -59,6 +62,9 @@ public class Menu {
 		setPayables(testPayables);
 	}
 
+	/**
+	 * Method to display Menu items
+	 */
 	public static void displayMenu() {
 		System.out.println("Accounts Payable System");
 		System.out.println("1. Add an employee");
@@ -68,6 +74,9 @@ public class Menu {
 		System.out.println("5. Exit");
 	}
 
+	/**
+	 * Method to add an employee (common for both FT & PT)
+	 */
 	public static void addEmployee() {
 		System.out.println("Adding an employee...");
 		// get employee details from user
@@ -98,6 +107,9 @@ public class Menu {
 		payables.add(emp);
 	}
 
+	/**
+	 * Method to add a utility bill
+	 */
 	public static void addBill() {
 		System.out.println("Adding a bill...");
 		// get bill details from user
@@ -115,6 +127,9 @@ public class Menu {
 		payables.add(bill);
 	}
 
+	/**
+	 * Method to display cheques
+	 */
 	public static void issueCheques() {
 		System.out.println("Issuing cheques...");
 		for (Payable payable : payables) {

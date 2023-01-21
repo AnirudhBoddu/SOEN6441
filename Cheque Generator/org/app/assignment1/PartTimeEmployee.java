@@ -10,11 +10,17 @@ public class PartTimeEmployee extends Employee {
 		this.hoursWorkedPerMonth = hoursWorkedPerMonth;
 	}
 
+	/**
+	 * Method to calculate the salary
+	 */
 	@Override
 	public double getAmount() {
 		return hoursWorkedPerMonth * getHourlyRate();
 	}
 
+	/**
+	 * Method to return hourly rate based on the echelon code
+	 */
 	private double getHourlyRate() {
 		if (echelon == 1)
 			return 15.0;
@@ -29,6 +35,9 @@ public class PartTimeEmployee extends Employee {
 		return 0;
 	}
 
+	/**
+	 * Return name of the employee
+	 */
 	@Override
 	public String getPayableTo() {
 		return getFirstName() + " " + getLastName();

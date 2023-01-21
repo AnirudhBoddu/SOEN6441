@@ -8,11 +8,17 @@ public class FullTimeEmployee extends Employee {
 		this.salary = salary;
 	}
 
+	/**
+	 * Returns salary entered during employee record creation
+	 */
 	@Override
 	public double getAmount() {
 		return salary;
 	}
 
+	/**
+	 * Returns name of the employee
+	 */
 	@Override
 	public String getPayableTo() {
 		return getFirstName() + " " + getLastName();

@@ -15,10 +15,18 @@ public class Bill implements Payable {
 		this.year = year;
 	}
 
+	/**
+	 * Returns the bill amount entered during record creation
+	 */
+	@Override
 	public double getAmount() {
 		return amount;
 	}
 
+	/**
+	 * Returns name of the company
+	 */
+	@Override
 	public String getPayableTo() {
 		return companyName;
 	}
@@ -26,7 +34,7 @@ public class Bill implements Payable {
 	public String dueDate() {
 		return month + "," + day + "," + year;
 	}
-	
+
 	public String getCompanyName() {
 		return companyName;
 	}
@@ -38,7 +46,7 @@ public class Bill implements Payable {
 	@Override
 	public void displayCheque() {
 		System.out.println("Payable to: " + getCompanyName());
-        System.out.println("Due date: " + dueDate());
-        System.out.println("Amount: $" + getAmount());
+		System.out.println("Due date: " + dueDate());
+		System.out.println("Amount: $" + getAmount());
 	}
 }
