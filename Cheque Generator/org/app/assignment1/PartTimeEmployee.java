@@ -24,8 +24,9 @@ public class PartTimeEmployee extends Employee {
 			return 25;
 		else if (echelon == 4)
 			return 30;
-		else
+		else if (echelon == 5)
 			return 40;
+		return 0;
 	}
 
 	@Override
