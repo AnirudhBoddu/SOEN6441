@@ -1,10 +1,10 @@
 package org.app.assignment1;
 
 public interface Payable {
-	double getAmount();
+    double getAmount();
 
-	String getPayableTo();
+    String getPayableTo();
 
-	// Method to display a cheque
-	void displayCheque();
+    // Method to display a cheque
+    void displayCheque();
 }
