@@ -1,16 +1,20 @@
 package org.app.assignment1;
 
+import java.time.LocalDate;
+
 public abstract class Employee implements Payable {
     private String firstName;
     private String lastName;
     private int age;
     private int ID;
+    protected LocalDate date;
 
     public Employee(String firstName, String lastName, int age, int id) {
         this.setFirstName(firstName);
         this.setLastName(lastName);
         this.setAge(age);
         this.setID(id);
+        date = LocalDate.now();
     }
 
     public String getFirstName() {
@@ -44,4 +48,5 @@ public abstract class Employee implements Payable {
     public void setAge(int age) {
         this.age = age;
     }
+
 }

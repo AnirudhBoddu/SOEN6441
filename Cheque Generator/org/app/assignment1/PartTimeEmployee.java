@@ -1,5 +1,7 @@
 package org.app.assignment1;
 
+import java.time.LocalDate;
+
 public class PartTimeEmployee extends Employee {
     private int echelon;
     private int hoursWorkedPerMonth;
@@ -48,4 +50,9 @@ public class PartTimeEmployee extends Employee {
         System.out.println("Payable to: " + getPayableTo());
         System.out.println("Amount: $" + getAmount());
     }
+
+	@Override
+	public LocalDate getDate() {
+		return date;
+	}
 }

@@ -1,18 +1,18 @@
 package org.app.assignment1;
 
+import java.time.LocalDate;
+import java.time.Month;
+
 public class Bill implements Payable {
     private String companyName;
     private double amount;
-    private String month;
-    private int day;
-    private int year;
+    private LocalDate date;
 
     public Bill(String companyName, double amount, String month, int day, int year) {
         this.companyName = companyName;
         this.amount = amount;
-        this.month = month;
-        this.day = day;
-        this.year = year;
+        Month m = Month.valueOf(month.toUpperCase());
+        date = LocalDate.of(year, m.getValue(), day);
     }
 
     /**
@@ -32,7 +32,7 @@ public class Bill implements Payable {
     }
 
     public String dueDate() {
-        return month + "," + day + "," + year;
+        return date.toString();
     }
 
     public String getCompanyName() {
@@ -49,4 +49,9 @@ public class Bill implements Payable {
         System.out.println("Due date: " + dueDate());
         System.out.println("Amount: $" + getAmount());
     }
+
+	@Override
+	public LocalDate getDate() {
+		return date;
+	}
 }

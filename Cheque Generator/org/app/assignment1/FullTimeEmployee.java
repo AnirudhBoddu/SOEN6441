@@ -1,5 +1,7 @@
 package org.app.assignment1;
 
+import java.time.LocalDate;
+
 public class FullTimeEmployee extends Employee {
     private double salary;
 
@@ -29,4 +31,9 @@ public class FullTimeEmployee extends Employee {
         System.out.println("Payable to: " + getPayableTo());
         System.out.println("Amount: $" + getAmount());
     }
+
+	@Override
+	public LocalDate getDate() {
+		return date;
+	}
 }

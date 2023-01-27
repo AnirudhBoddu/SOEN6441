@@ -1,5 +1,7 @@
 package org.app.assignment1;
 
+import java.time.LocalDate;
+
 public interface Payable {
     double getAmount();
 
@@ -7,4 +9,6 @@ public interface Payable {
 
     // Method to display a cheque
     void displayCheque();
+    
+    LocalDate getDate();
 }
