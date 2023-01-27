@@ -33,8 +33,8 @@ public abstract class Employee implements Payable {
         return ID;
     }
 
-    public void setID(int iD) {
-        ID = iD;
+    public void setID(int id) {
+        this.ID = id;
     }
 
     public int getAge() {

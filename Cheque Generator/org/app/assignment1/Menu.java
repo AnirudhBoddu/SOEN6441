@@ -5,8 +5,7 @@ import java.util.Scanner;
 
 public class Menu {
 
-    static ArrayList<Payable> payables = new ArrayList<Payable>();
-    static int payableCount = 0;
+    static ArrayList<Payable> payable = new ArrayList<>();
     static int chequeNumber = 1;
     static Scanner input = new Scanner(System.in);
 
@@ -35,9 +34,9 @@ public class Menu {
                 default:
                     System.out.println("Invalid choice. Please select a valid option.");
             }
-            System.out.println("Do you want to continue?");
+            System.out.println("Do you want to continue? (y/n)");
             ch = input.next();
-        } while (choice != 5 && ch.equalsIgnoreCase("Y"));
+        } while (choice != 5 && (ch.equalsIgnoreCase("y")));
         System.out.println("Thanks!");
     }
 
@@ -45,33 +44,40 @@ public class Menu {
      * Method to populate test values on fly
      */
     private static void populateTestValues() {
-        ArrayList<Payable> testPayables = new ArrayList<Payable>();
+        ArrayList<Payable> testPayables = new ArrayList<>();
         testPayables.add(new FullTimeEmployee("Cersei", "Lannister", 35, 1001, 60000));
         testPayables.add(new FullTimeEmployee("Grey", "Worm", 32, 1002, 40000));
         testPayables.add(new FullTimeEmployee("Sansa", "Stark", 23, 1003, 55000));
         testPayables.add(new FullTimeEmployee("Arya", "Stark", 18, 1004, 50000));
         testPayables.add(new FullTimeEmployee("Tyrion", "Lannister", 33, 1005, 65000));
+
         testPayables.add(new PartTimeEmployee("Margaery", "Tyrell", 28, 1006, 3, 60));
         testPayables.add(new PartTimeEmployee("Jon", "Snow", 30, 1007, 5, 70));
         testPayables.add(new PartTimeEmployee("Tywin", "Lannister", 61, 1008, 5, 40));
         testPayables.add(new PartTimeEmployee("Jaime", "Lannister", 35, 1009, 5, 55));
         testPayables.add(new PartTimeEmployee("Ned", "Stark", 55, 1010, 4, 30));
+
         testPayables.add(new Bill("Hydro Quebec", 48.54, "January", 31, 2023));
         testPayables.add(new Bill("Videotron", 72.35, "January", 30, 2023));
         testPayables.add(new Bill("Fido", 50, "February", 1, 2023));
-        setPayables(testPayables);
+
+        setPayable(testPayables);
+        System.out.println("Test values populated !!");
     }
 
     /**
      * Method to display Menu items
      */
     public static void displayMenu() {
+        System.out.println("=*=*=*=*=*=*=*=*=*=*=*=");
         System.out.println("Accounts Payable System");
+        System.out.println("=*=*=*=*=*=*=*=*=*=*=*=");
         System.out.println("1. Add an employee");
         System.out.println("2. Add a bill");
         System.out.println("3. Issue cheques");
         System.out.println("4. Populate test values");
         System.out.println("5. Exit");
+        System.out.println("=*=*=*=*=*=*=*=*=*=*=*=");
     }
 
     /**
@@ -91,8 +97,7 @@ public class Menu {
         int id = input.nextInt();
         double salary;
         System.out.println("Is the employee a part-timer? (Y/N)");
-        String ch;
-        ch = input.next();
+        String ch = input.next();
         if (ch.equalsIgnoreCase("Y")) {
             System.out.println("Enter the echelon number (1 to 5):");
             int echelon = input.nextInt();
@@ -104,7 +109,8 @@ public class Menu {
             salary = input.nextDouble();
             emp = new FullTimeEmployee(firstName, lastName, age, id, salary);
         }
-        payables.add(emp);
+        payable.add(emp);
+        System.out.println("...Employee added !!");
     }
 
     /**
@@ -124,7 +130,9 @@ public class Menu {
         System.out.println("Enter year:");
         int year = input.nextInt();
         Bill bill = new Bill(companyName, amount, month, day, year);
-        payables.add(bill);
+
+        payable.add(bill);
+        System.out.println("...Bill added !!");
     }
 
     /**
@@ -132,21 +140,28 @@ public class Menu {
      */
     public static void issueCheques() {
         System.out.println("Issuing cheques...");
-        for (Payable payable : payables) {
-            if (payable != null) {
-                System.out.println("=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*");
-                System.out.println("Cheque Number: " + chequeNumber);
-                payable.displayCheque();
-                chequeNumber++;
+        if (!payable.isEmpty()) {
+            for (Payable payable : payable) {
+                if (payable != null) {
+                    System.out.println("=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*");
+                    System.out.println("Cheque Number: " + chequeNumber);
+                    payable.displayCheque();
+                    chequeNumber++;
+                }
             }
+            payable.clear();
+            System.out.println("...All cheques have been issued !!");
+        } else {
+            System.out.println("...No available cheques to issue !!");
+
         }
     }
 
-    public static ArrayList<Payable> getPayables() {
-        return payables;
+    public static ArrayList<Payable> getPayable() {
+        return payable;
     }
 
-    public static void setPayables(ArrayList<Payable> payables) {
-        Menu.payables = payables;
+    public static void setPayable(ArrayList<Payable> payable) {
+        Menu.payable = payable;
     }
 }
