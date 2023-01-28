@@ -8,10 +8,10 @@ public class Bill implements Payable {
     private double amount;
     private LocalDate date;
 
-    public Bill(String companyName, double amount, String month, int day, int year) {
+    public Bill(String companyName, double amount, int day, int monthNumber, int year) {
         this.companyName = companyName;
         this.amount = amount;
-        Month m = Month.valueOf(month.toUpperCase());
+        Month m = Month.of(monthNumber);
         date = LocalDate.of(year, m.getValue(), day);
     }
 
@@ -50,8 +50,8 @@ public class Bill implements Payable {
         System.out.println("Amount: $" + getAmount());
     }
 
-	@Override
-	public LocalDate getDate() {
-		return date;
-	}
+    @Override
+    public LocalDate getDate() {
+        return date;
+    }
 }

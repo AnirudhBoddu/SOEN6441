@@ -1,1 +1,103 @@
-<mxfile host="app.diagrams.net" modified="2023-01-26T19:03:41.713Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.61" version="20.6.0" etag="W4B5vwxadSGp--YpE28r" type="device"><diagram id="HJizdD4bwiq5fBDNmU36" name="Page-1">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</diagram></mxfile>
+<mxGraphModel dx="0" dy="0" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" background="none" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+    <mxCell id="node0" parent="1" vertex="1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Bill&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ Bill(String, double, int, int, int): &lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- companyName: String&lt;br/&gt;- date: LocalDate&lt;br/&gt;- amount: double&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ displayCheque(): void&lt;br/&gt;+ dueDate(): String&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt; date: LocalDate&lt;br/&gt; amount: double&lt;br/&gt; payableTo: String&lt;br/&gt; companyName: String&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;">
+      <mxGeometry x="581" y="177" width="256" height="300" as="geometry" />
+    </mxCell>
+    <mxCell id="node5" parent="1" vertex="1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Employee&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ Employee(String, String, int, int): &lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- lastName: String&lt;br/&gt;- age: int&lt;br/&gt;- firstName: String&lt;br/&gt;- ID: int&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt; firstName: String&lt;br/&gt; lastName: String&lt;br/&gt; ID: int&lt;br/&gt; age: int&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;">
+      <mxGeometry x="141" y="191" width="266" height="273" as="geometry" />
+    </mxCell>
+    <mxCell id="node1" parent="1" vertex="1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;FullTimeEmployee&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ FullTimeEmployee(String, String, int, int, double): &lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ displayCheque(): void&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt; date: LocalDate&lt;br/&gt; payableTo: String&lt;br/&gt; amount: double&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;">
+      <mxGeometry x="288" y="544" width="367" height="169" as="geometry" />
+    </mxCell>
+    <mxCell id="node3" parent="1" vertex="1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Menu&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ Menu(): &lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;~ payable: ArrayList&amp;lt;Payable&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ issueCheques(): void&lt;br/&gt;+ addEmployee(): void&lt;br/&gt;- populateTestValues(): void&lt;br/&gt;- checkInteger(Scanner): void&lt;br/&gt;- checkDouble(Scanner): void&lt;br/&gt;+ addBill(): void&lt;br/&gt;+ displayMenu(): void&lt;br/&gt;- checkYN(String): void&lt;br/&gt;+ main(String[]): void&lt;br/&gt;- checkAlpha(Scanner): void&lt;br/&gt;- isPendingCheque(Payable): boolean&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt; payable: ArrayList&amp;lt;Payable&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;">
+      <mxGeometry x="46" y="778" width="281" height="404" as="geometry" />
+    </mxCell>
+    <mxCell id="node4" parent="1" vertex="1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;PartTimeEmployee&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ PartTimeEmployee(String, String, int, int, int, int): &lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ displayCheque(): void&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt; date: LocalDate&lt;br/&gt; hourlyRate: double&lt;br/&gt; amount: double&lt;br/&gt; payableTo: String&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;">
+      <mxGeometry x="-102" y="531" width="370" height="195" as="geometry" />
+    </mxCell>
+    <mxCell id="node2" parent="1" vertex="1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br/&gt;&lt;b&gt;Payable&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ displayCheque(): void&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt; date: LocalDate&lt;br/&gt; payableTo: String&lt;br/&gt; amount: double&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;">
+      <mxGeometry x="220" y="-17" width="193" height="142" as="geometry" />
+    </mxCell>
+    <mxCell id="edge1" edge="1" value="" parent="1" source="node0" target="node2" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=1;startArrow=none;endArrow=block;endSize=12;strokeColor=#008200;exitX=0.500;exitY=0.000;exitDx=0;exitDy=0;entryX=0.750;entryY=1.000;entryDx=0;entryDy=0;">
+      <mxGeometry width="50" height="50" relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="709" y="156" />
+          <mxPoint x="414" y="156" />
+          <mxPoint x="414" y="146" />
+          <mxPoint x="365" y="146" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="edge2" edge="1" value="" parent="1" source="node5" target="node2" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=1;startArrow=none;endArrow=block;endSize=12;strokeColor=#008200;exitX=0.500;exitY=0.000;exitDx=0;exitDy=0;entryX=0.750;entryY=1.000;entryDx=0;entryDy=0;">
+      <mxGeometry width="50" height="50" relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="274" y="156" />
+          <mxPoint x="414" y="156" />
+          <mxPoint x="414" y="146" />
+          <mxPoint x="365" y="146" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="edge0" edge="1" value="" parent="1" source="node1" target="node5" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.500;exitY=0.000;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;">
+      <mxGeometry width="50" height="50" relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="471" y="504" />
+          <mxPoint x="274" y="504" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="edge7" edge="1" value="" parent="1" source="node3" target="node0" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=1;startArrow=none;endArrow=openThin;endSize=12;strokeColor=#595959;exitX=1.000;exitY=0.500;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;">
+      <mxGeometry width="50" height="50" relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="709" y="980" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="label44" parent="edge7" vertex="1" connectable="0" value="«create»" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;strokeColor=default;">
+      <mxGeometry x="673" y="848" as="geometry" />
+    </mxCell>
+    <mxCell id="edge6" edge="1" value="" parent="1" source="node3" target="node1" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=1;startArrow=none;endArrow=openThin;endSize=12;strokeColor=#595959;exitX=0.887;exitY=0.000;exitDx=0;exitDy=0;entryX=0.020;entryY=1.000;entryDx=0;entryDy=0;">
+      <mxGeometry width="50" height="50" relative="1" as="geometry">
+        <Array as="points" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="label38" parent="edge6" vertex="1" connectable="0" value="«create»" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;strokeColor=default;">
+      <mxGeometry x="259" y="736" as="geometry" />
+    </mxCell>
+    <mxCell id="edge4" edge="1" value="" parent="1" source="node3" target="node4" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=1;startArrow=none;endArrow=openThin;endSize=12;strokeColor=#595959;exitX=0.131;exitY=0.000;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;">
+      <mxGeometry width="50" height="50" relative="1" as="geometry">
+        <Array as="points" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="label26" parent="edge4" vertex="1" connectable="0" value="«create»" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;strokeColor=default;">
+      <mxGeometry x="57" y="731" as="geometry" />
+    </mxCell>
+    <mxCell id="edge5" edge="1" value="" parent="1" source="node3" target="node2" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=diamondThinstartSize=12;endArrow=openThin;endSize=12;strokeColor=#595959;exitX=0.000;exitY=0.500;exitDx=0;exitDy=0;entryX=0.000;entryY=0.500;entryDx=0;entryDy=0;">
+      <mxGeometry width="50" height="50" relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="-120" y="980" />
+          <mxPoint x="-120" y="54" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="label30" parent="edge5" vertex="1" connectable="0" value="1" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;strokeColor=default;">
+      <mxGeometry x="-116" y="661" as="geometry" />
+    </mxCell>
+    <mxCell id="label34" parent="edge5" vertex="1" connectable="0" value="*" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;strokeColor=default;">
+      <mxGeometry x="167" y="29" as="geometry" />
+    </mxCell>
+    <mxCell id="label35" parent="edge5" vertex="1" connectable="0" value="payable" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;strokeColor=default;">
+      <mxGeometry x="116" y="54" as="geometry" />
+    </mxCell>
+    <mxCell id="edge3" edge="1" value="" parent="1" source="node4" target="node5" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.500;exitY=0.000;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;">
+      <mxGeometry width="50" height="50" relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="83" y="504" />
+          <mxPoint x="274" y="504" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+  </root>
+</mxGraphModel>
