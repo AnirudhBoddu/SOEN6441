@@ -2,6 +2,12 @@ package org.app.assignment1;
 
 import java.time.LocalDate;
 
+/**
+ * Java class for a Full Time Employee
+ * extends Employee abstract class
+ * 
+ */
+
 public class FullTimeEmployee extends Employee {
     private double salary;
 
@@ -26,6 +32,9 @@ public class FullTimeEmployee extends Employee {
         return getFirstName() + " " + getLastName();
     }
 
+    /**
+     * Method to display pay cheque
+     */
     @Override
     public void displayCheque() {
         System.out.println("Payable to: " + getPayableTo());

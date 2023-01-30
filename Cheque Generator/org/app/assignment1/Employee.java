@@ -2,6 +2,13 @@ package org.app.assignment1;
 
 import java.time.LocalDate;
 
+/**
+ * Employee abstract class implementing Payable interface
+ * 
+ * This class forms basis for Full-time and Part-time employee classes
+ *
+ */
+
 public abstract class Employee implements Payable {
     private String firstName;
     private String lastName;

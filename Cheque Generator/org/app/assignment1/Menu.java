@@ -8,6 +8,12 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Scanner;
 
+/**
+ * Main class displaying Cheque Generator Menu 
+ * 
+ * @authors ANIRUDH BODDU & SHAFIQ IMTIAZ
+ *
+ */
 public class Menu {
 
     static ArrayList<Payable> payable = new ArrayList<>();
@@ -199,7 +205,9 @@ public class Menu {
     }
 
     /**
-     * Method to display cheques
+     * Method to display cheques.
+     * Demostrates polymorphism, we are looping through the
+     * input data using the Interface reference.
      */
     public static void issueCheques() {
         System.out.println("Issuing cheques...");
@@ -230,6 +238,12 @@ public class Menu {
         }
     }
 
+    /**
+     * Method to verify whether a cheque must be generated or not.
+     * 
+     * @param payable
+     * @return
+     */
     private static boolean isPendingCheque(Payable payable) {
         LocalDate chequeDate = payable.getDate();
         LocalDate currentDate = LocalDate.now();

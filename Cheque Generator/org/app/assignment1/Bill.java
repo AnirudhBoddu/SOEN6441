@@ -3,6 +3,11 @@ package org.app.assignment1;
 import java.time.LocalDate;
 import java.time.Month;
 
+/**
+ * This class is a template for a utility Bill 
+ * implements Payable interface
+ *
+ */
 public class Bill implements Payable {
     private String companyName;
     private double amount;

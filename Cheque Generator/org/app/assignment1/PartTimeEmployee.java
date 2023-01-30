@@ -2,6 +2,12 @@ package org.app.assignment1;
 
 import java.time.LocalDate;
 
+/**
+ * Java class for a Part Time Employee
+ * extends Employee abstract class
+ * 
+ */
+
 public class PartTimeEmployee extends Employee {
     private int echelon;
     private int hoursWorkedPerMonth;
