@@ -25,6 +25,7 @@ public class Menu {
         String ch = "";
         do {
             displayMenu();
+            System.out.println("Please choose an option...");
             if (input.hasNextInt()) choice = input.nextInt();
             else input.next();
 
