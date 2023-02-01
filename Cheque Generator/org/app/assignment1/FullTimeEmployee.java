@@ -1,34 +1,34 @@
 package org.app.assignment1;
 
-import java.time.LocalDate;
-
 /**
- * Java class for a Full Time Employee
+ * Java class for a Full Time Employee which
  * extends Employee abstract class
+ *
+ * @authors ANIRUDH BODDU & SHAFIQ IMTIAZ
  */
-
 public class FullTimeEmployee extends Employee {
     private double salary;
 
+    /**
+     * Full Time Employee Constructor
+     */
     public FullTimeEmployee(String firstName, String lastName, int age, int ID, double salary) {
         super(firstName, lastName, age, ID);
         this.salary = salary;
     }
 
+    // *********************** OVERRIDDEN METHODS ***********************
+
     /**
-     * Returns salary entered during employee record creation
+     * @return salary entered during employee record creation
      */
     @Override
     public double getAmount() {
         return salary;
     }
 
-    public void setAmount(double salary) {
-        this.salary = salary;
-    }
-
     /**
-     * Returns name of the employee
+     * @return name of the employee
      */
     @Override
     public String getPayableTo() {
@@ -44,8 +44,12 @@ public class FullTimeEmployee extends Employee {
         System.out.println("Amount: $" + getAmount());
     }
 
-    @Override
-    public LocalDate getDate() {
-        return date;
+    // *********************** OTHER METHODS ***********************
+
+    /**
+     * Method to set salary entered during employee record creation
+     */
+    public void setSalary(double salary) {
+        this.salary = salary;
     }
 }

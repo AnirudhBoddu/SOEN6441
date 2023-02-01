@@ -1,40 +1,28 @@
 package org.app.assignment1;
 
-import java.time.LocalDate;
-
 /**
- * Java class for a Part Time Employee
+ * Java class for a Part Time Employee which
  * extends Employee abstract class
+ *
+ * @authors ANIRUDH BODDU & SHAFIQ IMTIAZ
  */
-
 public class PartTimeEmployee extends Employee {
     private int echelon;
     private int hoursWorkedPerMonth;
 
+    /**
+     * Part Time Employee Constructor
+     */
     public PartTimeEmployee(String firstName, String lastName, int age, int id, int echelon, int hoursWorkedPerMonth) {
         super(firstName, lastName, age, id);
         this.echelon = echelon;
         this.hoursWorkedPerMonth = hoursWorkedPerMonth;
     }
 
-    public int getEchelon() {
-        return echelon;
-    }
-
-    public void setEchelon(int echelon) {
-        this.echelon = echelon;
-    }
-
-    public int getHoursWorkedPerMonth() {
-        return hoursWorkedPerMonth;
-    }
-
-    public void setHoursWorkedPerMonth(int hoursWorkedPerMonth) {
-        this.hoursWorkedPerMonth = hoursWorkedPerMonth;
-    }
+    // *********************** OVERRIDDEN METHODS ***********************
 
     /**
-     * Method to calculate the salary
+     * @return calculate the salary
      */
     @Override
     public double getAmount() {
@@ -42,7 +30,26 @@ public class PartTimeEmployee extends Employee {
     }
 
     /**
-     * Method to return hourly rate based on the echelon code
+     * @return name of the employee
+     */
+    @Override
+    public String getPayableTo() {
+        return getFirstName() + " " + getLastName();
+    }
+
+    /**
+     * Displays cheque
+     */
+    @Override
+    public void displayCheque() {
+        System.out.println("Payable to: " + getPayableTo());
+        System.out.println("Amount: $" + getAmount());
+    }
+
+    // *********************** OTHER METHODS ***********************
+
+    /**
+     * @return hourly rate based on the echelon code
      */
     private double getHourlyRate() {
         if (echelon == 1)
@@ -59,24 +66,30 @@ public class PartTimeEmployee extends Employee {
     }
 
     /**
-     * Return name of the employee
+     * @return employee echelon
      */
-    @Override
-    public String getPayableTo() {
-        return getFirstName() + " " + getLastName();
+    public int getEchelon() {
+        return echelon;
     }
 
     /**
-     * Displays cheque
+     * sets employee echelon
      */
-    @Override
-    public void displayCheque() {
-        System.out.println("Payable to: " + getPayableTo());
-        System.out.println("Amount: $" + getAmount());
+    public void setEchelon(int echelon) {
+        this.echelon = echelon;
     }
 
-    @Override
-    public LocalDate getDate() {
-        return date;
+    /**
+     * @return hours worked per month
+     */
+    public int getHoursWorkedPerMonth() {
+        return hoursWorkedPerMonth;
+    }
+
+    /**
+     * sets hours worked per month
+     */
+    public void setHoursWorkedPerMonth(int hoursWorkedPerMonth) {
+        this.hoursWorkedPerMonth = hoursWorkedPerMonth;
     }
 }

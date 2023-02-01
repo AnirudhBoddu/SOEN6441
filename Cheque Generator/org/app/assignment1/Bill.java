@@ -5,13 +5,18 @@ import java.time.Month;
 
 /**
  * This class is a template for a utility Bill
- * implements Payable interface
+ * which implements Payable interface
+ *
+ * @authors ANIRUDH BODDU & SHAFIQ IMTIAZ
  */
 public class Bill implements Payable {
     private String companyName;
     private double amount;
     private LocalDate date;
 
+    /**
+     * Bill Constructor
+     */
     public Bill(String companyName, double amount, int day, int monthNumber, int year) {
         this.companyName = companyName;
         this.amount = amount;
@@ -19,40 +24,22 @@ public class Bill implements Payable {
         date = LocalDate.of(year, m.getValue(), day);
     }
 
+    // *********************** OVERRIDDEN METHODS ***********************
+
     /**
-     * Returns the bill amount entered during record creation
+     * @return the bill amount entered during record creation
      */
     @Override
     public double getAmount() {
         return amount;
     }
 
-    public String getCompanyName() {
-        return companyName;
-    }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
     /**
-     * Returns name of the company
+     * @return name of the company
      */
     @Override
     public String getPayableTo() {
         return companyName;
-    }
-
-    public String dueDate() {
-        return date.toString();
-    }
-
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
     }
 
     /**
@@ -65,8 +52,41 @@ public class Bill implements Payable {
         System.out.println("Amount: $" + getAmount());
     }
 
+    /**
+     * @return cheque date
+     */
     @Override
     public LocalDate getDate() {
         return date;
+    }
+
+    // *********************** OTHER METHODS ***********************
+
+    /**
+     * set a new bill amount
+     */
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    /**
+     * @return the company name
+     */
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    /**
+     * sets company name
+     */
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    /**
+     * @return cheque date as string
+     */
+    public String dueDate() {
+        return getDate().toString();
     }
 }
