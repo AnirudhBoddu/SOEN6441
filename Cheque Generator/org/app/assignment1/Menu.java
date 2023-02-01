@@ -74,8 +74,8 @@ public class Menu {
         testPayables.add(new PartTimeEmployee("Ned", "Stark", 55, 1010, 4, 30));
 
         testPayables.add(new Bill("Hydro Quebec", 48.54, 31, 12, 2019));
-        testPayables.add(new Bill("Videotron", 72.35, 3, 1, 2023));
-        testPayables.add(new Bill("Fido", 50, 23, 4, 2023));
+        testPayables.add(new Bill("Videotron", 72.35, 3, 4, 2023));
+        testPayables.add(new Bill("Fido", 50, 23, 1, 2024));
 
         setPayable(testPayables);
         System.out.println("Test values populated !!");
@@ -102,7 +102,6 @@ public class Menu {
     public static void addEmployee() {
         System.out.println("Adding an employee...");
         // get employee details from user
-        Employee emp;
 
         System.out.println("Enter first name:");
         checkAlpha(input);
@@ -131,6 +130,8 @@ public class Menu {
         System.out.println("Is the employee a part-timer? (Y/N)");
         String ch = input.next();
         checkYN(ch);
+
+        Employee emp;
 
         if (ch.equalsIgnoreCase("Y")) {
             System.out.println("Enter the echelon number (1 to 5):");
@@ -167,10 +168,12 @@ public class Menu {
      */
     public static void addBill() {
         System.out.println("Adding a bill...");
+
         // get bill details from user
         System.out.println("Enter company name:");
         checkAlpha(input);
-        String companyName = input.next();
+        String companyName = input.nextLine();
+
         System.out.println("Enter bill amount:");
         checkDouble(input);
         double amount = input.nextDouble();
@@ -228,9 +231,21 @@ public class Menu {
             LocalDateTime currDate = LocalDateTime.now();
             DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
             String formatDateTime = currDate.format(format);
-            System.out.printf("...All cheques till %s have been issued !!%n", formatDateTime);
+            System.out.printf("...%d cheques till %s have been issued !!%n", chequeNumber - 1, formatDateTime);
             System.out.println("Number of payable pending: " + payable.size());
 
+            System.out.println("Show pending cheques? (Y/N)");
+            String ch = input.next();
+            checkYN(ch);
+            if (ch.equalsIgnoreCase("Y")) {
+                for (Payable data : payable) {
+                    if (data != null) {
+                        System.out.println(chequeLineSeparator);
+                        data.displayCheque();
+                    }
+                }
+                System.out.println(chequeLineSeparator);
+            }
         } else {
             System.out.println(chequeLineSeparator);
             System.out.println("...No available cheques to issue !!");
@@ -262,6 +277,7 @@ public class Menu {
             System.out.println("Only alphabets please !!");
             sc.next();
         }
+        input.nextLine();
     }
 
     /**
