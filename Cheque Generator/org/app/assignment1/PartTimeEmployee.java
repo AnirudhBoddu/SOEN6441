@@ -51,6 +51,9 @@ public class PartTimeEmployee extends Employee {
         return getFirstName() + " " + getLastName();
     }
 
+    /**
+     * Displays cheque
+     */
     @Override
     public void displayCheque() {
         System.out.println("Payable to: " + getPayableTo());

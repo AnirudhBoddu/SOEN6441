@@ -3,12 +3,12 @@ package org.app.assignment1;
 import java.time.LocalDate;
 
 public interface Payable {
-    double getAmount();
+    public double getAmount();
 
-    String getPayableTo();
+    public String getPayableTo();
 
     // Method to display a cheque
-    void displayCheque();
+    public void displayCheque();
     
-    LocalDate getDate();
+    public LocalDate getDate();
 }

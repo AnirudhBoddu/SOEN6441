@@ -40,17 +40,16 @@ public class Bill implements Payable {
         return date.toString();
     }
 
-    public String getCompanyName() {
-        return companyName;
-    }
-
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
     }
 
+    /**
+     * Method to display a cheque
+     */
     @Override
     public void displayCheque() {
-        System.out.println("Payable to: " + getCompanyName());
+        System.out.println("Payable to: " + getPayableTo());
         System.out.println("Due date: " + dueDate());
         System.out.println("Amount: $" + getAmount());
     }
