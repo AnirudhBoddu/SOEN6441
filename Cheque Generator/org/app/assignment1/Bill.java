@@ -4,9 +4,8 @@ import java.time.LocalDate;
 import java.time.Month;
 
 /**
- * This class is a template for a utility Bill 
+ * This class is a template for a utility Bill
  * implements Payable interface
- *
  */
 public class Bill implements Payable {
     private String companyName;
@@ -26,6 +25,18 @@ public class Bill implements Payable {
     @Override
     public double getAmount() {
         return amount;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     /**

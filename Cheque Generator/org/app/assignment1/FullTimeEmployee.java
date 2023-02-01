@@ -5,7 +5,6 @@ import java.time.LocalDate;
 /**
  * Java class for a Full Time Employee
  * extends Employee abstract class
- * 
  */
 
 public class FullTimeEmployee extends Employee {
@@ -22,6 +21,10 @@ public class FullTimeEmployee extends Employee {
     @Override
     public double getAmount() {
         return salary;
+    }
+
+    public void setAmount(double salary) {
+        this.salary = salary;
     }
 
     /**
@@ -41,8 +44,8 @@ public class FullTimeEmployee extends Employee {
         System.out.println("Amount: $" + getAmount());
     }
 
-	@Override
-	public LocalDate getDate() {
-		return date;
-	}
+    @Override
+    public LocalDate getDate() {
+        return date;
+    }
 }

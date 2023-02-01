@@ -5,7 +5,6 @@ import java.time.LocalDate;
 /**
  * Java class for a Part Time Employee
  * extends Employee abstract class
- * 
  */
 
 public class PartTimeEmployee extends Employee {
@@ -15,6 +14,22 @@ public class PartTimeEmployee extends Employee {
     public PartTimeEmployee(String firstName, String lastName, int age, int id, int echelon, int hoursWorkedPerMonth) {
         super(firstName, lastName, age, id);
         this.echelon = echelon;
+        this.hoursWorkedPerMonth = hoursWorkedPerMonth;
+    }
+
+    public int getEchelon() {
+        return echelon;
+    }
+
+    public void setEchelon(int echelon) {
+        this.echelon = echelon;
+    }
+
+    public int getHoursWorkedPerMonth() {
+        return hoursWorkedPerMonth;
+    }
+
+    public void setHoursWorkedPerMonth(int hoursWorkedPerMonth) {
         this.hoursWorkedPerMonth = hoursWorkedPerMonth;
     }
 
@@ -60,8 +75,8 @@ public class PartTimeEmployee extends Employee {
         System.out.println("Amount: $" + getAmount());
     }
 
-	@Override
-	public LocalDate getDate() {
-		return date;
-	}
+    @Override
+    public LocalDate getDate() {
+        return date;
+    }
 }
