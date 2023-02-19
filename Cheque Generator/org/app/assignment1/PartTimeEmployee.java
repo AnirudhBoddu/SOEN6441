@@ -52,17 +52,14 @@ public class PartTimeEmployee extends Employee {
      * @return hourly rate based on the echelon code
      */
     private double getHourlyRate() {
-        if (echelon == 1)
-            return 15.0;
-        else if (echelon == 2)
-            return 20.0;
-        else if (echelon == 3)
-            return 25;
-        else if (echelon == 4)
-            return 30;
-        else if (echelon == 5)
-            return 40;
-        return 0;
+        switch(echelon) {
+            case 1: return 15.0;
+            case 2: return 20.0;
+            case 3: return 25;
+            case 4: return 30;
+            case 5: return 40;
+            default: return 0;
+        }
     }
 
     /**
