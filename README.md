@@ -1,2 +1,2 @@
-# SOEN6441
+# SOEN 6441
 Repository for APP course
