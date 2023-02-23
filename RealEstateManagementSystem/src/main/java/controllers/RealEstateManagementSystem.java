@@ -1,4 +1,4 @@
-package main.java;
+package main.java.controllers;
 
 public class RealEstateManagementSystem {
     
