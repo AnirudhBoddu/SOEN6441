@@ -53,7 +53,7 @@ public class RealEstateManagementSystem {
 	public void addProperty() {
 		System.out.println("What type of property would you like to add? (1) House (2) Condo (3) Apartment");
 		int propertyType = scanner.nextInt();
-		scanner.nextLine(); // consume the new line character
+		scanner.nextLine(); 
 
 		System.out.println("Please enter the civic address:");
 		String civicAddress = scanner.nextLine();
@@ -92,7 +92,7 @@ public class RealEstateManagementSystem {
 				squareFootage);
 
 		PropertyFactory propertyFactory;
-		String unitNum = null; // initialize to null
+		String unitNum = null; 
 		switch (propertyType) {
 		case 1:
 			propertyFactory = new HouseFactory();
@@ -114,6 +114,5 @@ public class RealEstateManagementSystem {
 		Property property = propertyFactory.createProperty(civicAddress, address, propertySpecification, unitNum);
 		properties.add(property);
 		System.out.println("Property added successfully!");
-
 	}
 }
