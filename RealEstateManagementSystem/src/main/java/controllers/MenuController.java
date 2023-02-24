@@ -18,14 +18,23 @@ public class MenuController {
     public static void displayMenu() {
         System.out.println("Rental Management System Menu");
         System.out.println("-------------------------------");
+
+        //TODO: Shafiq
         System.out.println("1. Add a property");        // Property Controller
         System.out.println("2. Add a tenant");          // Tenant Controller
         System.out.println("3. Rent a unit");           // Lease Controller
+
+        //TODO: Vithu
+        //TODO, also implement Subscribe Controller for notif
         System.out.println("4. Display properties");    // Property Controller
         System.out.println("5. Display tenants");       // Tenant Controller
+
+        //TODO: Ani
         System.out.println("6. Display rented units");  // Lease Controller
         System.out.println("7. Display vacant units");  // Lease Controller
         System.out.println("8. Display all leases");    // Lease Controller
+
+        //TODO
         System.out.println("9. Exit");
         System.out.println("-------------------------------");
         System.out.print("Please enter your choice (1-9): ");
