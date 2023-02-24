@@ -7,6 +7,8 @@ public class Tenant {
 	private String email;
 	private Address address;
 
+	//TODO: Remove attribute address
+
 	public Tenant(String firstName, String lastName, String phoneNumber, String email, Address address) {
 		this.firstName = firstName;
 		this.lastName = lastName;

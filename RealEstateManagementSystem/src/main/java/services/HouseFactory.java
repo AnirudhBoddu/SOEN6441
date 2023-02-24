@@ -8,8 +8,8 @@ import main.java.models.PropertySpecification;
 public class HouseFactory extends PropertyFactory {
     @Override
     public Property createProperty(String civicAddress, Address address, PropertySpecification propertySpecification,
-    String apartmentNumber) {
+    String apartmentNumber, double rentAmount) {
     	// TODO
-        return new House(civicAddress, address, propertySpecification);
+        return new House(civicAddress, address, propertySpecification, rentAmount);
     }
 }
