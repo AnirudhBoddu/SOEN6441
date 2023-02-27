@@ -6,12 +6,8 @@ import java.util.Scanner;
 
 import main.java.controllers.MenuController;
 import main.java.controllers.PropertyController;
-import main.java.models.Address;
-import main.java.models.Lease;
-import main.java.models.Payment;
-import main.java.models.Property;
-import main.java.models.PropertySpecification;
-import main.java.models.Tenant;
+import main.java.controllers.TenantController;
+import main.java.models.*;
 import main.java.services.ApartmentFactory;
 import main.java.services.CondoFactory;
 import main.java.services.HouseFactory;
@@ -28,6 +24,24 @@ public class RealEstateManagementSystem {
 
 	public static void main(String[] args) {
 		System.out.println("Real Estate Management System");
+
+		System.out.println("Testing Display Properties Functionality");
+		// TEST CASES for Display Properties Functionality
+		Property house1 = new House("Brompfman", new Address("6343","Jarry","Montreal","QC","H2S2V4"), new PropertySpecification(4,3,1000), 50.0);
+		Database.getInstance().addProperty(house1);
+		Property apartment = new House("Hobs", new Address("6999","Drummond","Montreal","QC","H9S2V4"), new PropertySpecification(4,3,1000), 50.0);
+		Database.getInstance().addProperty(apartment);
+		PropertyController.getInstance().displayProperties();
+
+		System.out.println("Testing Display Tenant Functionality");
+		// TEST CASES for Display Tenants Functionality
+		Tenant tenant1 = new Tenant("Vithu","Maheswaran","514-240-0499","vithu.maheswaran@gmail.com",new Address("6343","Jarry","Montreal","QC","H2S2V4"));
+		Tenant tenant2 = new Tenant("Tom","Ford","514-990-0799","tom.ford@gmail.com",new Address("5464","drummond","Montreal","QC","B8S2V4"));
+		Database.getInstance().addTenant(tenant1);
+		Database.getInstance().addTenant(tenant2);
+		TenantController.getInstance().displayTenants();
+
+
 	}
 
 	public static RealEstateManagementSystem getInstance(){

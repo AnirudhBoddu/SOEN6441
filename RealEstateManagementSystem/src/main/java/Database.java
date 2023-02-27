@@ -44,6 +44,11 @@ public class Database {
 		System.out.println("Lease added successfully!");
 	}
 
+	public void addTenant(Tenant tenant) {
+		tenants.add(tenant);
+		System.out.println("Tenant added successfully!");
+	}
+
 	public List<Lease> getLeases() {
 		return leases;
 	}

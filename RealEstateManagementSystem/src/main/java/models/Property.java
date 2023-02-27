@@ -56,4 +56,12 @@ public abstract class Property {
 	public void setRentAmount(double rentAmount) {
 		this.rentAmount = rentAmount;
 	}
+
+	@Override
+	public String toString() {
+		return "Civic Address='" + civicAddress + '\'' +
+				", Address=" + address +
+				", " + propertySpecification +
+				", Rent=$" + rentAmount ;
+	}
 }

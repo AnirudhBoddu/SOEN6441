@@ -56,12 +56,12 @@ public class MenuController {
 
     //TODO
     public void displayProperties() {
-
+        PropertyController.getInstance().displayProperties();
     }
 
     //TODO
     public void displayTenants() {
-
+        TenantController.getInstance().displayTenants();
     }
 
     //TODO
