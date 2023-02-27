@@ -5,8 +5,8 @@ public class Apartment extends Property {
 	private String apartmentNumber;
 
 	public Apartment(String civicAddress, Address address, PropertySpecification propertySpecification,
-			String apartmentNumber) {
-		super(civicAddress, address, propertySpecification);
+			String apartmentNumber, double rent) {
+		super(civicAddress, address, propertySpecification, rent);
 		this.apartmentNumber = apartmentNumber;
 	}
 

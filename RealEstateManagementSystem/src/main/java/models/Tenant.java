@@ -7,6 +7,8 @@ public class Tenant {
 	private String email;
 	private Address address;
 
+	//TODO: Remove attribute address
+
 	public Tenant(String firstName, String lastName, String phoneNumber, String email, Address address) {
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -54,5 +56,14 @@ public class Tenant {
 
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+
+	@Override
+	public String toString() {
+		return "'" + firstName + '\'' +
+				", '" + lastName + '\'' +
+				", '" + phoneNumber + '\'' +
+				", " + email + '\'' +
+				", " + address;
 	}
 }

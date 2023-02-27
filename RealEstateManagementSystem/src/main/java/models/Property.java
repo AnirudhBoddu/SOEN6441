@@ -6,12 +6,15 @@ public abstract class Property {
 	private PropertySpecification propertySpecification;
 	private boolean isOccupied;
 
-	public Property(String civicAddress, Address address, PropertySpecification propertySpecification) {
+	private double rentAmount;
+
+	public Property(String civicAddress, Address address, PropertySpecification propertySpecification, double rent) {
 		super();
 		this.civicAddress = civicAddress;
 		this.address = address;
 		this.propertySpecification = propertySpecification;
 		this.setOccupied(false);
+		this.rentAmount = rent;
 	}
 
 	public String getCivicAddress() {
@@ -46,4 +49,19 @@ public abstract class Property {
 		this.isOccupied = isOccupied;
 	}
 
+	public double getRentAmount() {
+		return rentAmount;
+	}
+
+	public void setRentAmount(double rentAmount) {
+		this.rentAmount = rentAmount;
+	}
+
+	@Override
+	public String toString() {
+		return "Civic Address='" + civicAddress + '\'' +
+				", Address=" + address +
+				", " + propertySpecification +
+				", Rent=$" + rentAmount ;
+	}
 }
