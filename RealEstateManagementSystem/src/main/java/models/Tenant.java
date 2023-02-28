@@ -1,11 +1,16 @@
 package main.java.models;
 
-public class Tenant {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Tenant implements Observer{
 	private String firstName;
 	private String lastName;
 	private String phoneNumber;
 	private String email;
 	private Address address;
+
+	private List<Subject> registeredProperties;
 
 	//TODO: Remove attribute address
 
@@ -15,6 +20,7 @@ public class Tenant {
 		this.phoneNumber = phoneNumber;
 		this.email = email;
 		this.address = address;
+		registeredProperties = new ArrayList<>();
 	}
 
 	// Getters and setters for all fields
@@ -56,6 +62,29 @@ public class Tenant {
 
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+
+	@Override
+	public void update() {
+		for(Subject sub: registeredProperties){
+			String msg = (String) sub.getUpdate(this);
+			if(msg == null){
+				System.out.println(firstName+":: No new message");
+			}else
+				System.out.println(firstName+":: Consuming message::"+msg);
+		}
+	}
+	@Override
+	public void update(Property p) {
+		String msg = (String) p.getUpdate(this);
+		if(msg == null){
+			System.out.println(firstName+":: No new message");
+		}else
+			System.out.println(firstName+":: Consuming message::"+msg);
+	}
+	@Override
+	public void setSubject(Subject sub) {
+		this.registeredProperties.add(sub);
 	}
 
 	@Override

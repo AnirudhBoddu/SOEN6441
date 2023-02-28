@@ -1,20 +1,31 @@
 package main.java.models;
 
-public abstract class Property {
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Property implements Subject{
 	private String civicAddress;
 	private Address address;
 	private PropertySpecification propertySpecification;
-	private boolean isOccupied;
+	private Boolean isOccupied;
 
 	private double rentAmount;
 
-	public Property(String civicAddress, Address address, PropertySpecification propertySpecification, double rent) {
+	// Observer Pattern
+	private List<Observer> observers;
+
+	private String message;
+	private boolean changed;
+	private final Object MUTEX = new Object();
+
+	public Property(String civicAddress, Address address, PropertySpecification propertySpecification, double rent)  {
 		super();
 		this.civicAddress = civicAddress;
 		this.address = address;
 		this.propertySpecification = propertySpecification;
 		this.setOccupied(false);
 		this.rentAmount = rent;
+		this.observers = new ArrayList<>();
 	}
 
 	public String getCivicAddress() {
@@ -46,6 +57,10 @@ public abstract class Property {
 	}
 
 	public void setOccupied(boolean isOccupied) {
+		// Notify subscribers only when property is available
+		if(this.isOccupied != null && isOccupied == false)
+			postMessage(this.address +" is available");
+
 		this.isOccupied = isOccupied;
 	}
 
@@ -58,10 +73,56 @@ public abstract class Property {
 	}
 
 	@Override
+	public void register(Observer obj){
+		if(obj == null) throw new NullPointerException("Null Observer");
+		synchronized (MUTEX) {
+			if(!observers.contains(obj)) observers.add(obj);
+		}
+	}
+
+	@Override
+	public void unregister(Observer obj) {
+		synchronized (MUTEX) {
+			observers.remove(obj);
+		}
+	}
+
+	@Override
+	public void notifyObservers() {
+		List<Observer> observersLocal = null;
+		//synchronization is used to make sure any observer registered after message is received is not notified
+		synchronized (MUTEX) {
+			if (!changed)
+				return;
+			observersLocal = new ArrayList<>(this.observers);
+			this.changed=false;
+		}
+		for (Observer obj : observersLocal) {
+			obj.update(this);
+		}
+	}
+
+	@Override
+	public Object getUpdate(Observer obj) {
+		return this.message;
+	}
+
+	//method to post message to the topic
+	public void postMessage(String msg){
+		System.out.println("Message Posted for Property: "+msg);
+		this.message=msg;
+		this.changed=true;
+		notifyObservers();
+	}
+	@Override
 	public String toString() {
 		return "Civic Address='" + civicAddress + '\'' +
 				", Address=" + address +
 				", " + propertySpecification +
 				", Rent=$" + rentAmount ;
+	}
+
+	public Boolean getChanged() {
+		return changed;
 	}
 }
