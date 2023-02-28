@@ -10,71 +10,82 @@ import java.util.List;
 
 public class Database {
 
-	private List<Property> properties;
-	private List<Tenant> tenants;
-	private List<Lease> leases;
-	private List<Payment> payments;
-	private static Database instance = new Database();
+    private List<Property> properties;
+    private List<Tenant> tenants;
+    private List<Lease> leases;
+    private List<Payment> payments;
+    private static Database instance = new Database();
 
-	// Singleton
-	private Database() {
-		properties = new ArrayList<>();
-		setTenants(new ArrayList<>());
-		leases = new ArrayList<>();
-		setPayments(new ArrayList<>());
-	}
+    // Singleton
+    private Database() {
+        properties = new ArrayList<>();
+        setTenants(new ArrayList<>());
+        leases = new ArrayList<>();
+        setPayments(new ArrayList<>());
+    }
 
-	public static void main(String[] args) {
-		System.out.println("Real Estate Management System");
-	}
+    public static Database getInstance() {
+        if (instance == null) {
+            instance = new Database();
+        }
+        return instance;
+    }
 
-	public static Database getInstance() {
-		if (instance == null)
-			instance = new Database();
-		return instance;
-	}
+    public void addProperty(Property property) {
+        properties.add(property);
+        System.out.println("Property added successfully!");
+    }
 
-	public void addProperty(Property property) {
-		properties.add(property);
-		System.out.println("Property added successfully!");
-	}
+    public void addLease(Lease lease) {
+        leases.add(lease);
+        System.out.println("Lease added successfully!");
+    }
 
-	public void addLease(Lease lease) {
-		leases.add(lease);
-		System.out.println("Lease added successfully!");
-	}
+    public void addTenant(Tenant tenant) {
+        tenants.add(tenant);
+        System.out.println("Tenant added successfully!");
+    }
 
-	public void addTenant(Tenant tenant) {
-		tenants.add(tenant);
-		System.out.println("Tenant added successfully!");
-	}
+    public Property getPropertyById(int id) {
+        for (Property p : properties) {
+            if (p.getPropertyId() == id) return p;
+        }
+        return null;
+    }
 
-	public List<Lease> getLeases() {
-		return leases;
-	}
+    public Tenant getTenantById(int id) {
+        for (Tenant t : tenants) {
+            if (t.getTenantId() == id) return t;
+        }
+        return null;
+    }
 
-	public void setLeases(List<Lease> leases) {
-		this.leases = leases;
-	}
+    public List<Lease> getLeases() {
+        return leases;
+    }
 
-	public List<Property> getProperties() {
-		return properties;
-	}
+    public void setLeases(List<Lease> leases) {
+        this.leases = leases;
+    }
 
-	public List<Tenant> getTenants() {
-		return tenants;
-	}
+    public List<Property> getProperties() {
+        return properties;
+    }
 
-	public void setTenants(List<Tenant> tenants) {
-		this.tenants = tenants;
-	}
+    public List<Tenant> getTenants() {
+        return tenants;
+    }
 
-	public List<Payment> getPayments() {
-		return payments;
-	}
+    public void setTenants(List<Tenant> tenants) {
+        this.tenants = tenants;
+    }
 
-	public void setPayments(List<Payment> payments) {
-		this.payments = payments;
-	}
+    public List<Payment> getPayments() {
+        return payments;
+    }
+
+    public void setPayments(List<Payment> payments) {
+        this.payments = payments;
+    }
 
 }
