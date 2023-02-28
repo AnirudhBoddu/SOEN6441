@@ -25,17 +25,20 @@ public class MenuController {
         System.out.println("3. Rent a unit");           // Lease Controller
 
         //TODO: Vithu
+        System.out.println("4. Subscribe to properties");   // Property Controller
+
+
         //TODO, also implement Subscribe Controller for notif
-        System.out.println("4. Display properties");    // Property Controller
-        System.out.println("5. Display tenants");       // Tenant Controller
+        System.out.println("5. Display properties");    // Property Controller
+        System.out.println("6. Display tenants");       // Tenant Controller
 
         //TODO: Ani
-        System.out.println("6. Display rented units");  // Lease Controller
-        System.out.println("7. Display vacant units");  // Lease Controller
-        System.out.println("8. Display all leases");    // Lease Controller
+        System.out.println("7. Display rented units");  // Lease Controller
+        System.out.println("8. Display vacant units");  // Lease Controller
+        System.out.println("9. Display all leases");    // Lease Controller
 
         //TODO
-        System.out.println("9. Exit");
+        System.out.println("10. Exit");
         System.out.println("-------------------------------");
         System.out.print("Please enter your choice (1-9): ");
     }
@@ -56,12 +59,12 @@ public class MenuController {
 
     //TODO
     public void displayProperties() {
-
+        PropertyController.getInstance().displayProperties();
     }
 
     //TODO
     public void displayTenants() {
-
+        TenantController.getInstance().displayTenants();
     }
 
     //TODO

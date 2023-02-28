@@ -1,5 +1,7 @@
 package main.java.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import main.java.Database;
@@ -96,6 +98,15 @@ public class PropertyController {
         Database.getInstance().addProperty(property);
 
         System.out.println("Property added successfully!");
+    }
+
+    // Method
+    // Display all properties in the database
+    public void displayProperties() {
+        List<Property> listOfProperties = Database.getInstance().getProperties();
+        for(Property p: listOfProperties){
+            System.out.println(p);
+        }
     }
 
 }

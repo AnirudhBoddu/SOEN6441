@@ -35,4 +35,10 @@ public class PropertySpecification {
 		this.squareFootage = squareFootage;
 	}
 
+	@Override
+	public String toString() {
+		return "Number of Bedrooms=" + numBedrooms +
+				", Number of Bathrooms=" + numBathrooms +
+				", Square Footage=" + squareFootage;
+	}
 }
