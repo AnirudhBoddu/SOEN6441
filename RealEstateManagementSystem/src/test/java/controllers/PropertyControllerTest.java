@@ -5,8 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import main.java.Database;
@@ -21,25 +21,26 @@ class PropertyControllerTest {
 	private PropertyFactory propertyFactory;
 	private Address address;
 	private PropertySpecification propertySpec;
-	private Property property;
 	private List<Property> properties;
+	Database dbInstance = Database.getInstance();
 
-	@Before
+	@BeforeEach
 	public void setup() {
-		// Adding one property
+		Property property;
+		properties =  new ArrayList<>();
 		propertyFactory = new HouseFactory();
 		address = new Address("123 Main St", "Apt 1", "Anytown", "Anystate", "12345");
 		propertySpec = new PropertySpecification(2, 1, 1500);
 		property = propertyFactory.createProperty(null, address, propertySpec, null, 1350);
-
-		// Adding multiple properties
-		properties = new ArrayList<Property>();
-		assertTrue(Database.getInstance().addProperty(property));
+		dbInstance.addProperty(property);
 		properties.add(property);
+
 		address = new Address("321 Oak St", "Apt 5", "Anytown", "Anystate", "67891");
 		propertySpec = new PropertySpecification(1, 1, 1000);
 		property = propertyFactory.createProperty(null, address, propertySpec, null, 1050);
+		dbInstance.addProperty(property);
 		properties.add(property);
+		
 	}
 
 	/*
@@ -47,24 +48,24 @@ class PropertyControllerTest {
 	 */
 	@Test
 	void testAddProperty() {
-		assertTrue(Database.getInstance().addProperty(property));
+		List<Property> propertyList = Database.getInstance().getProperties();
+		assertTrue(!propertyList.isEmpty());
 	}
 
 	/*
-	 * Tests if properties are added successfully or not
+	 * Tests if all the properties are added successfully or not
 	 */
 	@Test
 	void testDisplayProperties() {
 		List<Property> propertyList = Database.getInstance().getProperties();
-		assertNotNull(propertyList);
+		assertEquals(properties.size(), propertyList.size());
 	}
 
-	@After
+	@AfterEach
 	public void tearDown() {
 		propertyFactory = null;
 		address = null;
 		propertySpec = null;
-		property = null;
 		properties = null;
 	}
 }
