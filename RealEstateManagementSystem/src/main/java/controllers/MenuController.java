@@ -1,5 +1,10 @@
 package main.java.controllers;
 
+import main.java.models.Lease;
+import main.java.models.Observer;
+import main.java.models.Property;
+import main.java.models.Subject;
+
 import java.util.Scanner;
 
 public class MenuController {
@@ -82,6 +87,17 @@ public class MenuController {
     public void addProperty() {
         PropertyController.getInstance().addProperty();
         System.out.println("Property added successfully!");
+    }
+
+    //TODO: Shafiq
+    public void registerTenantToProperty(Observer tenant, Subject property){
+
+    };
+
+    //TODO: Shafiq
+    // Delete lease from lease Controller (create new class)
+    public void listProperty(Lease lease){
+
     }
 
     //TODO SHAFIQ
