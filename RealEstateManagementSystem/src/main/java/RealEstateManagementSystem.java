@@ -18,13 +18,15 @@ import java.util.Scanner;
 public class RealEstateManagementSystem {
 
     private static RealEstateManagementSystem instance = new RealEstateManagementSystem();
-    private static Scanner scanner = new Scanner(System.in);
 
     // Singleton
     private RealEstateManagementSystem() {
     }
 
     public static void main(String[] args) throws ParseException, FileNotFoundException {
+
+        MenuController.runMenu();
+
         System.out.println("Real Estate Management System");
 
         System.out.println(CSVReader("res/property.csv"));

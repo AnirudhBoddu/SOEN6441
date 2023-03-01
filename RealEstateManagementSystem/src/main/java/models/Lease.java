@@ -12,6 +12,8 @@ public class Lease {
     private Date endDate;
     private Boolean isActive;
 
+    private Boolean isPaid;
+
     public Lease(Tenant tenant, Property property, double rentAmount, Date startDate, Date endDate) {
         this.tenant = tenant;
         this.property = property;
@@ -20,6 +22,7 @@ public class Lease {
         this.endDate = endDate;
         this.isActive = false;
         leaseId = ++counter;
+        isPaid = false;
     }
 
     public Tenant getTenant() {
