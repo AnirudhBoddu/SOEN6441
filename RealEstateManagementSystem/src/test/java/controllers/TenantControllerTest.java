@@ -14,6 +14,7 @@ import main.java.models.Tenant;
 
 class TenantControllerTest {
 	private List<Tenant> tenants;
+	private Database dbInstance = Database.getInstance();
 
 	@BeforeEach
 	void setUp() {
@@ -24,7 +25,7 @@ class TenantControllerTest {
 		String phoneNumber = "1234567890";
 		String email = "johndoe@example.com";
 		tenant = new Tenant(firstName, lastName, phoneNumber, email);
-		Database.getInstance().addTenant(tenant);
+		dbInstance.addTenant(tenant);
 		tenants.add(tenant);
 
 		firstName = "Jane";
@@ -32,20 +33,22 @@ class TenantControllerTest {
 		phoneNumber = "0987654321";
 		email = "janedoe@example.com";
 		tenant = new Tenant(firstName, lastName, phoneNumber, email);
-		Database.getInstance().addTenant(tenant);
+		dbInstance.addTenant(tenant);
 		tenants.add(tenant);
 	}
 
 	@AfterEach
 	void tearDown() {
 		tenants = null;
-		Database.getInstance().setTenants(null);
+		dbInstance.getTenants().clear();
 	}
 
 	@Test
 	void testAddTenant() {
-		List<Tenant> tenantsList = Database.getInstance().getTenants();
-		assertTrue(!tenantsList.isEmpty());
+		List<Tenant> tenantsList = dbInstance.getTenants();
+		assertTrue(tenantsList.size() == 2);
+		assertEquals(tenants.get(0).getTenantId(), tenantsList.get(0).getTenantId());
+		assertEquals(tenants.get(1).getTenantId(), tenantsList.get(1).getTenantId());
 	}
 
 	/*
@@ -53,7 +56,7 @@ class TenantControllerTest {
 	 */
 	@Test
 	void testDisplayTenants() {
-		List<Tenant> tenantList = Database.getInstance().getTenants();
+		List<Tenant> tenantList = dbInstance.getTenants();
 		assertEquals(tenants.size(), tenantList.size());
 	}
 }

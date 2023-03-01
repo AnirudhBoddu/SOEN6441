@@ -22,7 +22,7 @@ class PropertyControllerTest {
 	private Address address;
 	private PropertySpecification propertySpec;
 	private List<Property> properties;
-	Database dbInstance = Database.getInstance();
+	private Database dbInstance = Database.getInstance();
 
 	@BeforeEach
 	public void setup() {
@@ -48,8 +48,10 @@ class PropertyControllerTest {
 	 */
 	@Test
 	void testAddProperty() {
-		List<Property> propertyList = Database.getInstance().getProperties();
-		assertTrue(!propertyList.isEmpty());
+		List<Property> propertyList = dbInstance.getProperties();
+		assertTrue(propertyList.size() == 2);
+		assertEquals(properties.get(0).getPropertyId(), propertyList.get(0).getPropertyId());
+		assertEquals(properties.get(1).getPropertyId(), propertyList.get(1).getPropertyId());
 	}
 
 	/*
@@ -57,7 +59,7 @@ class PropertyControllerTest {
 	 */
 	@Test
 	void testDisplayProperties() {
-		List<Property> propertyList = Database.getInstance().getProperties();
+		List<Property> propertyList = dbInstance.getProperties();
 		assertEquals(properties.size(), propertyList.size());
 	}
 
@@ -67,5 +69,6 @@ class PropertyControllerTest {
 		address = null;
 		propertySpec = null;
 		properties = null;
+		dbInstance.getProperties().clear();
 	}
 }
