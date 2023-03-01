@@ -17,7 +17,7 @@ public class MenuController {
         return instance;
     }
 
-    // TODO
+    // TODO SHAFIQ
     public static void runMenu(){
         displayMenu();
         int userInput = scanner.nextInt();
@@ -47,11 +47,11 @@ public class MenuController {
                 break;
             case 12:
                 break;
-            case 13:
+            case 13: //TODO Exit
                 break;
         }
     }
-    //TODO: Implementation of Menu
+    //TODO: Implementation of Menu SHAFIQ
     public static void displayMenu() {
         System.out.println("Rental Management System Menu");
         System.out.println("-------------------------------");
@@ -65,16 +65,15 @@ public class MenuController {
         System.out.println("8. Display vacant units");  // Lease Controller
         System.out.println("9. Display all leases");    // Lease Controller
 
-        //TODO
+        //TODO VITHU
         // Iterate through list of valid leases (isPaid == false) and display outstanding unpaid leases
         // Display lease id, tenant name, tenant phone number, rent amount
         System.out.println("11. Display all outstanding rents");    // Lease Controller
 
-        //TODO
+        //TODO VITHU
         // Query for creation of new payment and save in database
         System.out.println("12. Pay rent");    // Lease Controller
 
-        //TODO
         System.out.println("13. Exit");
         System.out.println("-------------------------------");
         System.out.print("Please enter your choice (1-9): ");
@@ -85,36 +84,36 @@ public class MenuController {
         System.out.println("Property added successfully!");
     }
 
-    //TODO
+    //TODO SHAFIQ
     public void addTenant() {
     }
 
-    //TODO
+    //TODO SHAFIQ
     public void rentUnit() {
 
     }
 
-    //TODO
+
     public void displayProperties() {
         PropertyController.getInstance().displayProperties();
     }
 
-    //TODO
+
     public void displayTenants() {
         TenantController.getInstance().displayTenants();
     }
 
-    //TODO
+    //TODO SHAFIQ
     public void displayRentedUnits() {
 
     }
 
-    //TODO
+    //TODO SHAFIQ
     public void displayVacantUnits() {
 
     }
 
-    //TODO
+    //TODO SHAFIQ
     public void displayLeases() {
 
     }
