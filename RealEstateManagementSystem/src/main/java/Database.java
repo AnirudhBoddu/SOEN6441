@@ -31,10 +31,17 @@ public class Database {
         return instance;
     }
 
-    public void addProperty(Property property) {
-        properties.add(property);
-        System.out.println("Property added successfully!");
-    }
+	public boolean addProperty(Property property) {
+		boolean result = false;
+		result = properties.add(property);
+		if (result) {
+			System.out.println("Property added successfully!");
+			return true;
+		} else {
+			System.out.println("Couldn't add the property");
+			return false;
+		}
+	}
 
     public void addLease(Lease lease) {
         leases.add(lease);
