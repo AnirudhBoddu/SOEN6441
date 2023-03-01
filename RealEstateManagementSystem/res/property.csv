@@ -1,0 +1,2 @@
+﻿Type,CivicAddress,streetNumber,streetName,city,province,postalCode,numBedrooms,numBathrooms,squareFootage,rentAmount
+House,Brompfman,6343,Jarry,Montreal,QC,H2S2V4,4,3,1000,50
