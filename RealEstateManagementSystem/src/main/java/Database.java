@@ -83,6 +83,10 @@ public class Database {
 		return null;
 	}
 
+	public void removeLease(Lease lease){
+		leases.remove(lease);
+	}
+
 	public List<Lease> getLeases() {
 		return leases;
 	}

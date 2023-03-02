@@ -112,4 +112,19 @@ public class LeaseController {
         }
     }
 
+    public void terminateLeaseById(){
+        System.out.println("Please enter a lease id");
+        int leaseId = scanner.nextInt();
+        List<Lease> leases = Database.getInstance().getLeases();
+        if(leases.isEmpty()) System.out.println("There are no leases in the system");
+        for(int i = 0; i<leases.size();i++){
+            Lease lease = leases.get(i);
+            if (lease.getLeaseId() == leaseId)
+            {
+                lease.getProperty().setOccupied(false);
+                leases.remove(i);
+                break;
+            }
+        }
+    }
 }

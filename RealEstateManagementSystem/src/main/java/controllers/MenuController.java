@@ -5,6 +5,7 @@ import main.java.models.Observer;
 import main.java.models.Property;
 import main.java.models.Subject;
 
+import java.text.ParseException;
 import java.util.Scanner;
 
 public class MenuController {
@@ -23,7 +24,7 @@ public class MenuController {
     }
 
     // TODO SHAFIQ
-    // Create infinteloop with proper break to exit system
+    // Create infinte loop with proper break to exit system
     public static void runMenu(){
         displayMenu();
         int userInput = scanner.nextInt();
@@ -56,6 +57,9 @@ public class MenuController {
             case 12:
                 MenuController.getInstance().payRent();
                 break;
+            case 14:
+                MenuController.getInstance().terminateLease();
+                break;
             case 13: //TODO Exit
                 break;
         }
@@ -64,20 +68,21 @@ public class MenuController {
     public static void displayMenu() {
         System.out.println("Rental Management System Menu");
         System.out.println("-------------------------------");
-        System.out.println("1. Add a property");        // Property Controller
-        System.out.println("2. Add a tenant");          // Tenant Controller
-        System.out.println("3. Rent a unit");           // Lease Controller
-        System.out.println("4. Subscribe to properties");   // Property Controller
-        System.out.println("5. Display properties");    // Property Controller
-        System.out.println("6. Display tenants");       // Tenant Controller
-        System.out.println("7. Display rented units");  // Lease Controller
-        System.out.println("8. Display vacant units");  // Lease Controller
-        System.out.println("9. Display all leases");    // Lease Controller
+        System.out.println("1.  Add a property");        // Property Controller
+        System.out.println("2.  Add a tenant");          // Tenant Controller
+        System.out.println("3.  Rent a unit");           // Lease Controller
+        System.out.println("4.  Subscribe to properties");   // Property Controller
+        System.out.println("5.  Display properties");    // Property Controller
+        System.out.println("6.  Display tenants");       // Tenant Controller
+        System.out.println("7.  Display rented units");  // Lease Controller
+        System.out.println("8.  Display vacant units");  // Lease Controller
+        System.out.println("9.  Display all leases");    // Lease Controller
         System.out.println("11. Display all outstanding rents");    // Lease Controller
         System.out.println("12. Pay rent");    // Lease Controller
-        System.out.println("13. Exit");
+        System.out.println("13. Terminate Lease");
+        System.out.println("14. Exit");
         System.out.println("-------------------------------");
-        System.out.print("Please enter your choice (1-9): ");
+        System.out.print("Please enter your choice (1-13): ");
     }
 
     public void addProperty() {
@@ -85,24 +90,20 @@ public class MenuController {
         System.out.println("Property added successfully!");
     }
 
-    //TODO: Shafiq
     public void registerTenantToProperty(Observer tenant, Subject property){
-
+        TenantController.getInstance().addTenant();
     };
 
-    //TODO: Shafiq
-    // Delete lease from lease Controller (create new class)
-    public void listProperty(Lease lease){
-
+    public void terminateLease(){
+        LeaseController.getInstance().terminateLeaseById();
     }
 
-    //TODO SHAFIQ
     public void addTenant() {
+        TenantController.getInstance().addTenant();
     }
 
-    //TODO SHAFIQ
-    public void rentUnit() {
-
+    public void rentUnit() throws ParseException {
+        LeaseController.getInstance().rentUnit();
     }
 
 
@@ -115,19 +116,16 @@ public class MenuController {
         TenantController.getInstance().displayTenants();
     }
 
-    //TODO SHAFIQ
     public void displayRentedUnits() {
-
+        LeaseController.getInstance().displayRentedUnits();
     }
 
-    //TODO SHAFIQ
     public void displayVacantUnits() {
-
+        LeaseController.getInstance().displayVacantUnits();
     }
 
-    //TODO SHAFIQ
     public void displayLeases() {
-
+        LeaseController.getInstance().displayAllLeases();
     }
 
     // Iterate through list of valid leases (isPaid == false) and display outstanding unpaid leases
