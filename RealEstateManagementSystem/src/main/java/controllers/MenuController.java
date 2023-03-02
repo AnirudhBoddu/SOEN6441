@@ -23,6 +23,7 @@ public class MenuController {
     }
 
     // TODO SHAFIQ
+    // Create infinteloop with proper break to exit system
     public static void runMenu(){
         displayMenu();
         int userInput = scanner.nextInt();
@@ -37,8 +38,10 @@ public class MenuController {
             case 4:
                 break;
             case 5:
+                MenuController.getInstance().displayProperties();
                 break;
             case 6:
+                MenuController.getInstance().displayTenants();
                 break;
             case 7:
                 break;
@@ -51,6 +54,7 @@ public class MenuController {
             case 11:
                 break;
             case 12:
+                MenuController.getInstance().payRent();
                 break;
             case 13: //TODO Exit
                 break;
@@ -69,16 +73,8 @@ public class MenuController {
         System.out.println("7. Display rented units");  // Lease Controller
         System.out.println("8. Display vacant units");  // Lease Controller
         System.out.println("9. Display all leases");    // Lease Controller
-
-        //TODO VITHU
-        // Iterate through list of valid leases (isPaid == false) and display outstanding unpaid leases
-        // Display lease id, tenant name, tenant phone number, rent amount
         System.out.println("11. Display all outstanding rents");    // Lease Controller
-
-        //TODO VITHU
-        // Query for creation of new payment and save in database
         System.out.println("12. Pay rent");    // Lease Controller
-
         System.out.println("13. Exit");
         System.out.println("-------------------------------");
         System.out.print("Please enter your choice (1-9): ");
@@ -132,6 +128,17 @@ public class MenuController {
     //TODO SHAFIQ
     public void displayLeases() {
 
+    }
+
+    // Iterate through list of valid leases (isPaid == false) and display outstanding unpaid leases
+    // Display lease id, tenant name, tenant phone number, rent amount
+    public void displayUnpaidLeases(){
+       LeaseController.getInstance().displayUnpaidLeases();
+    }
+
+    // Query for creation of new payment and save in database
+    public void payRent(){
+        PaymentController.getInstance().createNewPayment();
     }
 
 

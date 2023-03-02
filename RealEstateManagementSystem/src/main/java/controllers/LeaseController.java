@@ -86,6 +86,7 @@ public class LeaseController {
         }
     }
 
+
     public void displayAllLeases() {
         List<Lease> leases = databaseInstance.getLeases();
         if (leases.isEmpty()) {
@@ -93,6 +94,19 @@ public class LeaseController {
         } else {
             System.out.println("All Leases:");
             for (Lease lease : leases) {
+                System.out.println(lease.toString());
+            }
+        }
+    }
+
+    public void displayUnpaidLeases(){
+        List<Lease> leases = databaseInstance.getLeases();
+        if(leases.isEmpty()){
+            System.out.println("No leases found.");
+        } else {
+            System.out.println("Unpaid Leases:");
+            for (Lease lease : leases) {
+                if(!lease.isPaid())
                 System.out.println(lease.toString());
             }
         }

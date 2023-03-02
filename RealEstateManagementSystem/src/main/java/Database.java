@@ -53,6 +53,12 @@ public class Database {
 		System.out.println("Tenant added successfully!");
 	}
 
+
+	public void addPayment(Payment payment) {
+		payments.add(payment);
+		System.out.println("Payment added successfully!");
+	}
+
 	public Property getPropertyById(int id) {
 		for (Property p : properties) {
 			if (p.getPropertyId() == id)
@@ -65,6 +71,14 @@ public class Database {
 		for (Tenant t : tenants) {
 			if (t.getTenantId() == id)
 				return t;
+		}
+		return null;
+	}
+
+	public Lease getLeaseById(int id) {
+		for (Lease l : leases) {
+			if (l.getLeaseId() == id)
+				return l;
 		}
 		return null;
 	}

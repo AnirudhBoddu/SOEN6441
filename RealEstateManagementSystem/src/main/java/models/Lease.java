@@ -70,6 +70,13 @@ public class Lease {
         isActive = active;
     }
 
+    public boolean isPaid(){
+        return isPaid;
+    }
+
+    public void setIsPaid(boolean paymentStatus){
+        this.isPaid = paymentStatus;
+    }
     @Override
     public String toString() {
         return "Lease{" +
