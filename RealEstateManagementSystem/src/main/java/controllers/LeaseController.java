@@ -29,24 +29,32 @@ public class LeaseController {
         return instance;
     }
 
-    public void rentUnit() throws ParseException {
-        System.out.println("Please enter Property ID");
-        int propertyId = scanner.nextInt();
-        System.out.println("Please enter Tenant ID");
-        int tenantId = scanner.nextInt();
+    public void rentUnit() {
+        while(true){
+            try{
+                System.out.println("Please enter Property ID");
+                int propertyId = scanner.nextInt();
+                System.out.println("Please enter Tenant ID");
+                int tenantId = scanner.nextInt();
 
-        System.out.println("Please enter Start Date - dd/MM/yyyy");
-        Date startDate = new SimpleDateFormat("dd/MM/yyyy").parse(scanner.next());
+                System.out.println("Please enter Start Date - dd/MM/yyyy");
+                Date startDate = new SimpleDateFormat("dd/MM/yyyy").parse(scanner.next());
 
-        System.out.println("Please enter End Date - dd/MM/yyyy");
-        Date endDate = new SimpleDateFormat("dd/MM/yyyy").parse(scanner.next());
+                System.out.println("Please enter End Date - dd/MM/yyyy");
+                Date endDate = new SimpleDateFormat("dd/MM/yyyy").parse(scanner.next());
 
-        Property unit = Database.getInstance().getPropertyById(propertyId);
-        Tenant tenant = Database.getInstance().getTenantById(tenantId);
+                Property unit = Database.getInstance().getPropertyById(propertyId);
+                Tenant tenant = Database.getInstance().getTenantById(tenantId);
 
-        if (!unit.isOccupied()) {
-            Lease newLease = new Lease(tenant, unit, unit.getRentAmount(), startDate, endDate);
-            Database.getInstance().addLease(newLease);
+                if (!unit.isOccupied()) {
+                    Lease newLease = new Lease(tenant, unit, unit.getRentAmount(), startDate, endDate);
+                    Database.getInstance().addLease(newLease);
+                    break;
+                }
+            } catch (Exception e){
+                System.out.println("You've entered the incorrect format, please try again");
+                scanner.next();
+            }
         }
     }
 

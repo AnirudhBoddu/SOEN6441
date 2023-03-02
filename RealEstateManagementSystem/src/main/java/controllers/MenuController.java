@@ -102,7 +102,7 @@ public class MenuController {
         TenantController.getInstance().addTenant();
     }
 
-    public void rentUnit() throws ParseException {
+    public void rentUnit() {
         LeaseController.getInstance().rentUnit();
     }
 
