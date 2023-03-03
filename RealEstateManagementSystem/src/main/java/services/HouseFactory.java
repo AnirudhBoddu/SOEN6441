@@ -6,10 +6,9 @@ import main.java.models.Property;
 import main.java.models.PropertySpecification;
 
 public class HouseFactory extends PropertyFactory {
-    @Override
-    public Property createProperty(String civicAddress, Address address, PropertySpecification propertySpecification,
-    String apartmentNumber, double rentAmount) {
-    	// TODO
-        return new House(civicAddress, address, propertySpecification, rentAmount);
-    }
+	@Override
+	public Property createProperty(String civicAddress, Address address, PropertySpecification propertySpecification,
+			String apartmentNumber, double rentAmount) {
+		return new House(civicAddress, address, propertySpecification, rentAmount);
+	}
 }

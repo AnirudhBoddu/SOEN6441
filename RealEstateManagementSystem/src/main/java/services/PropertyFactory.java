@@ -5,11 +5,6 @@ import main.java.models.Property;
 import main.java.models.PropertySpecification;
 
 public abstract class PropertyFactory {
-    public abstract Property createProperty(String civicAddress, Address address, PropertySpecification propertySpecification, String unitNum, double rentAmount);
+	public abstract Property createProperty(String civicAddress, Address address,
+			PropertySpecification propertySpecification, String unitNum, double rentAmount);
 }
-
-
-
-
-
-
