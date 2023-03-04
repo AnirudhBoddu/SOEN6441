@@ -35,6 +35,11 @@ class PropertyControllerTest {
 		dbInstance.addProperty(property);
 		properties.add(property);
 
+		/*** 
+        Creating another property with different values using the same procedure as above
+        and adding it to the ArrayList and database for further testing   
+        ***/
+		
 		address = new Address("321 Oak St", "Apt 5", "Anytown", "Anystate", "67891");
 		propertySpec = new PropertySpecification(1, 1, 1000);
 		property = propertyFactory.createProperty(null, address, propertySpec, null, 1050);
@@ -63,6 +68,11 @@ class PropertyControllerTest {
 		assertEquals(properties.size(), propertyList.size());
 	}
 
+	/*
+    * Runs after each test method.
+    * Here we are setting the objects to null and empty the properties from the database to prevent duplicates and
+    * ensure cleanliness between tests
+    **/
 	@AfterEach
 	public void tearDown() {
 		propertyFactory = null;

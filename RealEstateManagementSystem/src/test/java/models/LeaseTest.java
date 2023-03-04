@@ -27,6 +27,7 @@ public class LeaseTest {
 		property = new House(null, address, propertySpec, 2000);
 		tenant = new Tenant("John", "Doe", "johndoe@gmail.com", "123-456-7890");
 		Date startDate = new Date();
+		// One year from startDate
 		Date endDate = new Date(startDate.getTime() + (1000 * 60 * 60 * 24 * 365)); // One year from startDate
 		lease = new Lease(tenant, property, 2000.0, startDate, endDate);
 	}

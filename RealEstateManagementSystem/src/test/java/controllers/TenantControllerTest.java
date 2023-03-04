@@ -37,12 +37,18 @@ class TenantControllerTest {
 		tenants.add(tenant);
 	}
 
+	/*
+	 * clear all the entries after the testing has been completed and has passed successfully
+	 */
 	@AfterEach
 	void tearDown() {
 		tenants = null;
 		dbInstance.getTenants().clear();
 	}
 
+	/*
+	 * Tests if tenants are added successfully or not by comparing the size of lists as well as tenant ids from both actual and temporary ones
+	 */
 	@Test
 	void testAddTenant() {
 		List<Tenant> tenantsList = dbInstance.getTenants();
