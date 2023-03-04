@@ -9,15 +9,15 @@ public class Tenant implements Observer {
     private int tenantId;
     private String firstName;
     private String lastName;
-    private String phoneNumber;
     private String email;
+    private int phoneNumber;
     private List<Subject> registeredProperties;
 
-    public Tenant(String firstName, String lastName, String phoneNumber, String email) {
+    public Tenant(String firstName, String lastName, String email, int phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
         this.email = email;
+        this.phoneNumber = phoneNumber;
         registeredProperties = new ArrayList<>();
         tenantId = ++counter;
     }
@@ -43,11 +43,11 @@ public class Tenant implements Observer {
         this.lastName = lastName;
     }
 
-    public String getPhoneNumber() {
+    public int getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

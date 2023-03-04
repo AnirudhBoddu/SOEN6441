@@ -1,7 +1,6 @@
 package main.java;
 
-import main.java.controllers.*;
-import main.java.models.*;
+import main.java.controllers.MenuController;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -11,7 +10,6 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 
 public class RealEstateManagementSystem {
 
@@ -23,31 +21,30 @@ public class RealEstateManagementSystem {
 
     public static void main(String[] args) throws ParseException, FileNotFoundException {
 
-        //MenuController.runMenu();
-
         System.out.println("Real Estate Management System");
+        MenuController.getInstance().runMenu();
 
-        System.out.println(CSVReader("res/property.csv"));
-        System.out.println(CSVReader("res/tenant.csv"));
-
-        System.out.println("**** Add Property ****");
-        PropertyController.getInstance().addProperty();
-
-        System.out.println("**** Add Tenant *****");
-        TenantController.getInstance().addTenant();
-
-        System.out.println("**** Rent Unit *****");
-        LeaseController.getInstance().rentUnit();
-
-        LeaseController.getInstance().displayAllLeases();
-        System.out.println("**** Display UnpaidLeases ****");
-        LeaseController.getInstance().displayUnpaidLeases();
-
-        System.out.println("**** Payment Creation ***");
-        PaymentController.getInstance().createNewPayment();
-        System.out.println("**** Display UnpaidLeases ****");
-
-        LeaseController.getInstance().displayUnpaidLeases();
+//        System.out.println(CSVReader("res/property.csv"));
+//        System.out.println(CSVReader("res/tenant.csv"));
+//
+//        System.out.println("**** Add Property ****");
+//        PropertyController.getInstance().addProperty();
+//
+//        System.out.println("**** Add Tenant *****");
+//        TenantController.getInstance().addTenant();
+//
+//        System.out.println("**** Rent Unit *****");
+//        LeaseController.getInstance().rentUnit();
+//
+//        LeaseController.getInstance().displayAllLeases();
+//        System.out.println("**** Display UnpaidLeases ****");
+//        LeaseController.getInstance().displayUnpaidLeases();
+//
+//        System.out.println("**** Payment Creation ***");
+//        PaymentController.getInstance().createNewPayment();
+//        System.out.println("**** Display UnpaidLeases ****");
+//
+//        LeaseController.getInstance().displayUnpaidLeases();
 //        // TEST CASES for Display Properties Functionality
 //        System.out.println("****Testing Display Properties Functionality****");
 //		Property house1 = new House("Brompfman", new Address("6343","Jarry","Montreal","QC","H2S2V4"),

@@ -2,6 +2,7 @@ package main.java.controllers;
 
 import main.java.Database;
 import main.java.models.Tenant;
+import main.java.util.Helper;
 
 import java.util.List;
 import java.util.Scanner;
@@ -9,7 +10,7 @@ import java.util.Scanner;
 public class TenantController {
 
     private static TenantController instance = new TenantController();
-    private static Scanner scanner = new Scanner(System.in);
+    private static Scanner input = new Scanner(System.in);
 
     // Singleton
     private TenantController() {
@@ -17,18 +18,22 @@ public class TenantController {
 
     public void addTenant() {
         System.out.println("Please enter first name:");
-        String firstName = scanner.next();
+        Helper.checkAlpha(input);
+        String firstName = input.next();
 
         System.out.println("Please enter last name:");
-        String lastName = scanner.next();
-
-        System.out.println("Please enter phone number:");
-        String phoneNumber = scanner.next();
+        Helper.checkAlpha(input);
+        String lastName = input.next();
 
         System.out.println("Please enter email:");
-        String email = scanner.next();
+        String email = input.next();
 
-        Tenant tenant = new Tenant(firstName, lastName, phoneNumber, email);
+        System.out.println("Please enter phone number:");
+        Helper.checkInteger(input);
+        int phoneNumber = input.nextInt();
+
+
+        Tenant tenant = new Tenant(firstName, lastName, email, phoneNumber);
         Database.getInstance().addTenant(tenant);
     }
 

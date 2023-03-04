@@ -5,18 +5,16 @@ import main.java.models.Lease;
 import main.java.models.Property;
 import main.java.models.Tenant;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
 public class LeaseController {
 
     private static LeaseController instance = new LeaseController();
-    private static Database databaseInstance = Database.getInstance();
-    private static Scanner scanner = new Scanner(System.in);
+    private static Scanner input = new Scanner(System.in);
 
     // Singleton
     private LeaseController() {
@@ -30,18 +28,18 @@ public class LeaseController {
     }
 
     public void rentUnit() {
-        while(true){
-            try{
+        while (true) {
+            try {
                 System.out.println("Please enter Property ID");
-                int propertyId = scanner.nextInt();
+                int propertyId = input.nextInt();
                 System.out.println("Please enter Tenant ID");
-                int tenantId = scanner.nextInt();
+                int tenantId = input.nextInt();
 
                 System.out.println("Please enter Start Date - dd/MM/yyyy");
-                Date startDate = new SimpleDateFormat("dd/MM/yyyy").parse(scanner.next());
+                LocalDate startDate = LocalDate.parse(input.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
                 System.out.println("Please enter End Date - dd/MM/yyyy");
-                Date endDate = new SimpleDateFormat("dd/MM/yyyy").parse(scanner.next());
+                LocalDate endDate = LocalDate.parse(input.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
                 Property unit = Database.getInstance().getPropertyById(propertyId);
                 Tenant tenant = Database.getInstance().getTenantById(tenantId);
@@ -51,15 +49,15 @@ public class LeaseController {
                     Database.getInstance().addLease(newLease);
                     break;
                 }
-            } catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("You've entered the incorrect format, please try again");
-                scanner.next();
+                input.next();
             }
         }
     }
 
     public void displayRentedUnits() {
-        List<Lease> leases = databaseInstance.getLeases();
+        List<Lease> leases = Database.getInstance().getLeases();
         List<Property> rentedProperties = new ArrayList<>();
         for (Lease lease : leases) {
             if (lease.getEndDate() == null) {
@@ -77,7 +75,7 @@ public class LeaseController {
     }
 
     public void displayVacantUnits() {
-        List<Property> properties = databaseInstance.getProperties();
+        List<Property> properties = Database.getInstance().getProperties();
         List<Property> vacantProperties = new ArrayList<>();
         for (Property property : properties) {
             if (!property.isOccupied()) {
@@ -96,7 +94,7 @@ public class LeaseController {
 
 
     public void displayAllLeases() {
-        List<Lease> leases = databaseInstance.getLeases();
+        List<Lease> leases = Database.getInstance().getLeases();
         if (leases.isEmpty()) {
             System.out.println("No leases found.");
         } else {
@@ -107,28 +105,27 @@ public class LeaseController {
         }
     }
 
-    public void displayUnpaidLeases(){
-        List<Lease> leases = databaseInstance.getLeases();
-        if(leases.isEmpty()){
+    public void displayUnpaidLeases() {
+        List<Lease> leases = Database.getInstance().getLeases();
+        if (leases.isEmpty()) {
             System.out.println("No leases found.");
         } else {
             System.out.println("Unpaid Leases:");
             for (Lease lease : leases) {
-                if(!lease.isPaid())
-                System.out.println(lease.toString());
+                if (!lease.isPaid())
+                    System.out.println(lease.toString());
             }
         }
     }
 
-    public void terminateLeaseById(){
+    public void terminateLeaseById() {
         System.out.println("Please enter a lease id");
-        int leaseId = scanner.nextInt();
+        int leaseId = input.nextInt();
         List<Lease> leases = Database.getInstance().getLeases();
-        if(leases.isEmpty()) System.out.println("There are no leases in the system");
-        for(int i = 0; i<leases.size();i++){
+        if (leases.isEmpty()) System.out.println("There are no leases in the system");
+        for (int i = 0; i < leases.size(); i++) {
             Lease lease = leases.get(i);
-            if (lease.getLeaseId() == leaseId)
-            {
+            if (lease.getLeaseId() == leaseId) {
                 lease.getProperty().setOccupied(false);
                 leases.remove(i);
                 break;

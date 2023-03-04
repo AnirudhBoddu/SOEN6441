@@ -4,10 +4,12 @@ import main.java.Database;
 import main.java.models.Address;
 import main.java.models.Property;
 import main.java.models.PropertySpecification;
+import main.java.models.Tenant;
 import main.java.services.ApartmentFactory;
 import main.java.services.CondoFactory;
 import main.java.services.HouseFactory;
 import main.java.services.PropertyFactory;
+import main.java.util.Helper;
 
 import java.util.List;
 import java.util.Scanner;
@@ -15,7 +17,7 @@ import java.util.Scanner;
 public class PropertyController {
 
     private static PropertyController instance = new PropertyController();
-    private static Scanner scanner = new Scanner(System.in);
+    private static Scanner input = new Scanner(System.in);
 
     // Singleton
     private PropertyController() {
@@ -29,27 +31,32 @@ public class PropertyController {
 
     public void addProperty() {
         System.out.println("What type of property would you like to add? (1) House (2) Condo (3) Apartment");
-        int propertyType = scanner.nextInt();
-        scanner.nextLine();
+        Helper.checkInteger(input);
+        int propertyType = input.nextInt();
 
         System.out.println("Please enter the civic address:");
-        String civicAddress = scanner.nextLine();
+        String civicAddress = input.next();
 
         Address address = AddressController.getInstance().makeAddress();
+        input.nextLine();
 
         System.out.println("Please enter the property specifications:");
 
         System.out.println("Number of bedrooms:");
-        int numBedrooms = scanner.nextInt();
+        Helper.checkInteger(input);
+        int numBedrooms = input.nextInt();
 
         System.out.println("Number of bathrooms:");
-        int numBathrooms = scanner.nextInt();
+        Helper.checkInteger(input);
+        int numBathrooms = input.nextInt();
 
         System.out.println("Square footage:");
-        int squareFootage = scanner.nextInt();
+        Helper.checkInteger(input);
+        int squareFootage = input.nextInt();
 
         System.out.println("Rent amount:");
-        double rentAmount = scanner.nextDouble();
+        Helper.checkDouble(input);
+        double rentAmount = input.nextDouble();
 
         PropertySpecification propertySpecification = new PropertySpecification(numBedrooms, numBathrooms, squareFootage);
 
@@ -62,12 +69,12 @@ public class PropertyController {
             case 2:
                 propertyFactory = new CondoFactory();
                 System.out.println("Please enter the unit number:");
-                unitNum = scanner.next();
+                unitNum = input.next();
                 break;
             case 3:
                 propertyFactory = new ApartmentFactory();
                 System.out.println("Please enter the apartment number:");
-                unitNum = scanner.next();
+                unitNum = input.next();
                 break;
             default:
                 System.out.println("Invalid property type selected.");
@@ -75,6 +82,23 @@ public class PropertyController {
         }
         Property property = propertyFactory.createProperty(civicAddress, address, propertySpecification, unitNum, rentAmount);
         Database.getInstance().addProperty(property);
+    }
+
+    public void registerTenantToProperty() {
+        System.out.println("Please enter the Property ID:");
+        Helper.checkInteger(input);
+        int propertyID = input.nextInt();
+
+        System.out.println("Please enter the Tenant ID:");
+        Helper.checkInteger(input);
+        int tenantID = input.nextInt();
+
+        Property observable = Database.getInstance().getPropertyById(propertyID);
+        Tenant observer = Database.getInstance().getTenantById(tenantID);
+
+        observable.register(observer);
+        observer.setSubject(observable);
+        observer.update();
     }
 
     // Method

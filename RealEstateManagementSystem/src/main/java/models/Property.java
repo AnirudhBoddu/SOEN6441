@@ -125,8 +125,8 @@ public abstract class Property implements Subject {
                 "propertyId=" + propertyId +
                 ", civicAddress='" + civicAddress + '\'' +
                 ", address=" + address +
-                ", propertySpecification=" + propertySpecification +
-                ", rentAmount=" + rentAmount +
+                ", propertySpecification={" + propertySpecification +
+                "} , rentAmount=" + rentAmount +
                 '}';
     }
 

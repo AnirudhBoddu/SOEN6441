@@ -1,6 +1,6 @@
 package main.java.models;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Lease {
     private static int counter = 0;
@@ -8,13 +8,13 @@ public class Lease {
     private Tenant tenant;
     private Property property;
     private double rentAmount;
-    private Date startDate;
-    private Date endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
     private Boolean isActive;
 
     private Boolean isPaid;
 
-    public Lease(Tenant tenant, Property property, double rentAmount, Date startDate, Date endDate) {
+    public Lease(Tenant tenant, Property property, double rentAmount, LocalDate startDate, LocalDate endDate) {
         this.tenant = tenant;
         this.property = property;
         this.rentAmount = rentAmount;
@@ -46,19 +46,19 @@ public class Lease {
         this.rentAmount = rentAmount;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 
@@ -70,13 +70,14 @@ public class Lease {
         isActive = active;
     }
 
-    public boolean isPaid(){
+    public boolean isPaid() {
         return isPaid;
     }
 
-    public void setIsPaid(boolean paymentStatus){
+    public void setIsPaid(boolean paymentStatus) {
         this.isPaid = paymentStatus;
     }
+
     @Override
     public String toString() {
         return "Lease{" +

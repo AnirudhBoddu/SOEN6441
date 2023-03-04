@@ -1,6 +1,7 @@
 package main.java.controllers;
 
 import main.java.models.Address;
+import main.java.util.Helper;
 
 import java.util.Scanner;
 
@@ -13,23 +14,27 @@ public class AddressController {
     }
 
     public Address makeAddress() {
-        Scanner scanner = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         System.out.println("Please enter the address details:");
 
         System.out.println("Street number:");
-        String streetNumber = scanner.nextLine();
+        Helper.checkInteger(input);
+        int streetNumber = input.nextInt();
 
         System.out.println("Street name:");
-        String streetName = scanner.nextLine();
+        Helper.checkAlpha(input);
+        String streetName = input.next();
 
         System.out.println("City:");
-        String city = scanner.nextLine();
+        Helper.checkAlpha(input);
+        String city = input.next();
 
         System.out.println("Province:");
-        String province = scanner.nextLine();
+        Helper.checkAlpha(input);
+        String province = input.next();
 
         System.out.println("Postal code:");
-        String postalCode = scanner.nextLine();
+        String postalCode = input.next();
 
         return new Address(streetNumber, streetName, city, province, postalCode);
     }
