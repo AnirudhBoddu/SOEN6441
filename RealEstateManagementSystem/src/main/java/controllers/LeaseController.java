@@ -32,25 +32,29 @@ public class LeaseController {
             try {
                 System.out.println("Please enter Property ID");
                 int propertyId = input.nextInt();
-                System.out.println("Please enter Tenant ID");
-                int tenantId = input.nextInt();
-
-                System.out.println("Please enter Start Date - dd/MM/yyyy");
-                LocalDate startDate = LocalDate.parse(input.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-
-                System.out.println("Please enter End Date - dd/MM/yyyy");
-                LocalDate endDate = LocalDate.parse(input.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
                 Property unit = Database.getInstance().getPropertyById(propertyId);
-                Tenant tenant = Database.getInstance().getTenantById(tenantId);
 
                 if (!unit.isOccupied()) {
+                    System.out.println("Please enter Tenant ID");
+                    int tenantId = input.nextInt();
+                    Tenant tenant = Database.getInstance().getTenantById(tenantId);
+                    System.out.println("Please enter Start Date - dd/MM/yyyy");
+                    LocalDate startDate = LocalDate.parse(input.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+
+                    System.out.println("Please enter End Date - dd/MM/yyyy");
+                    LocalDate endDate = LocalDate.parse(input.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+
                     Lease newLease = new Lease(tenant, unit, unit.getRentAmount(), startDate, endDate);
                     Database.getInstance().addLease(newLease);
+                    unit.setOccupied(true);
+                    break;
+                } else { // Unit is occupied
+                    System.out.println("Sorry! This property is occupied");
                     break;
                 }
             } catch (Exception e) {
-                System.out.println("You've entered the incorrect format, please try again");
+                System.out.println("The date format you've entered is incorrect, please try again");
                 input.next();
             }
         }
@@ -59,8 +63,9 @@ public class LeaseController {
     public void displayRentedUnits() {
         List<Lease> leases = Database.getInstance().getLeases();
         List<Property> rentedProperties = new ArrayList<>();
+        LocalDate lt = LocalDate.now();
         for (Lease lease : leases) {
-            if (lease.getEndDate() == null) {
+            if (!lease.getEndDate().isBefore(lt)) {
                 rentedProperties.add(lease.getProperty());
             }
         }
