@@ -29,8 +29,7 @@ public class TenantController {
         String email = input.next();
 
         System.out.println("Please enter phone number:");
-        Helper.checkInteger(input);
-        int phoneNumber = input.nextInt();
+        String phoneNumber = input.next();
 
 
         Tenant tenant = new Tenant(firstName, lastName, email, phoneNumber);

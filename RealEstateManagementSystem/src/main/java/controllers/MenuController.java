@@ -22,28 +22,28 @@ public class MenuController {
 
     public void displayMenu() {
         System.out.println("==================================");
-        System.out.println("1.  Add a property");        // Property Controller
-        System.out.println("2.  Add a tenant");          // Tenant Controller
-        System.out.println("3.  Rent a unit");           // Lease Controller
-        System.out.println("4.  Subscribe to properties");   // Property Controller
-        System.out.println("5.  Display properties");    // Property Controller
-        System.out.println("6.  Display tenants");       // Tenant Controller
-        System.out.println("7.  Display rented units");  // Lease Controller
-        System.out.println("8.  Display vacant units");  // Lease Controller
-        System.out.println("9.  Display all leases");    // Lease Controller
-        System.out.println("10. Display all outstanding rents");    // Lease Controller
-        System.out.println("11. Pay rent");    // Lease Controller
+        System.out.println("1.  Add a property");
+        System.out.println("2.  Add a tenant");
+        System.out.println("3.  Rent a unit");
+        System.out.println("4.  Subscribe to properties");
+        System.out.println("5.  Display properties");
+        System.out.println("6.  Display tenants");
+        System.out.println("7.  Display rented units");
+        System.out.println("8.  Display vacant units");
+        System.out.println("9.  Display all leases");
+        System.out.println("10. Display all outstanding rents");
+        System.out.println("11. Pay rent");
         System.out.println("12. Terminate Lease");
-        System.out.println("13. Exit");
+        System.out.println("13. Populate from CSV");
+        System.out.println("14. Exit");
         System.out.println("==================================");
-        System.out.print("Please enter your choice (1-13): ");
+        System.out.print("Please enter your choice (1-14): ");
     }
 
     // TODO SHAFIQ
     // Create infinte loop with proper break to exit system
     public void runMenu() {
         int userInput = 0;
-        String ch = "";
         do {
             displayMenu();
             if (input.hasNextInt()) userInput = input.nextInt();
@@ -87,68 +87,72 @@ public class MenuController {
                     MenuController.getInstance().terminateLease();
                     break;
                 case 13:
+                    MenuController.getInstance().populateFromCSV();
+                    break;
+                case 14:
                     System.out.println("Exiting the program...");
                     break;
                 default:
                     System.out.println("Invalid choice. Please select a valid option.");
             }
-            if (userInput != 13) {
-                System.out.println("Do you want to continue? (y/n)");
-                ch = Helper.checkYN(input.next());
-            }
-        } while (userInput != 13 && (ch.equalsIgnoreCase("y")));
+        } while (userInput != 14);
         System.out.println("Thanks!");
     }
 
-    public void addProperty() {
+    private void addProperty() {
         PropertyController.getInstance().addProperty();
     }
 
-    public void addTenant() {
+    private void addTenant() {
         TenantController.getInstance().addTenant();
     }
 
-    public void rentUnit() {
+    private void rentUnit() {
         LeaseController.getInstance().rentUnit();
     }
 
-    public void registerTenantToProperty() {
+    private void registerTenantToProperty() {
         PropertyController.getInstance().registerTenantToProperty();
     }
 
 
-    public void displayProperties() {
+    private void displayProperties() {
         PropertyController.getInstance().displayProperties();
     }
 
-    public void displayTenants() {
+    private void displayTenants() {
         TenantController.getInstance().displayTenants();
     }
 
-    public void displayRentedUnits() {
+    private void displayRentedUnits() {
         LeaseController.getInstance().displayRentedUnits();
     }
 
-    public void displayVacantUnits() {
+    private void displayVacantUnits() {
         LeaseController.getInstance().displayVacantUnits();
     }
 
-    public void displayLeases() {
+    private void displayLeases() {
         LeaseController.getInstance().displayAllLeases();
     }
 
     // Iterate through list of valid leases (isPaid == false) and display outstanding unpaid leases
     // Display lease id, tenant name, tenant phone number, rent amount
-    public void displayUnpaidLeases() {
+    private void displayUnpaidLeases() {
         LeaseController.getInstance().displayUnpaidLeases();
     }
 
     // Query for creation of new payment and save in database
-    public void payRent() {
+    private void payRent() {
         PaymentController.getInstance().createNewPayment();
     }
 
-    public void terminateLease() {
+    private void terminateLease() {
         LeaseController.getInstance().terminateLeaseById();
+    }
+
+    private void populateFromCSV() {
+        Helper.ParsePropertyCSV(Helper.CSVReader("res/property.csv"));
+        Helper.ParseTenantCSV(Helper.CSVReader("res/tenant.csv"));
     }
 }

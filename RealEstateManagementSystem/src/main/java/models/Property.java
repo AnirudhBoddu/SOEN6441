@@ -121,12 +121,12 @@ public abstract class Property implements Subject {
 
     @Override
     public String toString() {
-        return "Property{" +
-                "propertyId=" + propertyId +
+        return "Property {" +
+                "ID=" + propertyId +
                 ", civicAddress='" + civicAddress + '\'' +
                 ", address=" + address +
-                ", propertySpecification={" + propertySpecification +
-                "} , rentAmount=" + rentAmount +
+                ", specs={" + propertySpecification +
+                "} , rent=" + rentAmount +
                 '}';
     }
 

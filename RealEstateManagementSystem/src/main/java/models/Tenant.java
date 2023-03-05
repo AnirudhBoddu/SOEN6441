@@ -10,10 +10,10 @@ public class Tenant implements Observer {
     private String firstName;
     private String lastName;
     private String email;
-    private int phoneNumber;
+    private String phoneNumber;
     private List<Subject> registeredProperties;
 
-    public Tenant(String firstName, String lastName, String email, int phoneNumber) {
+    public Tenant(String firstName, String lastName, String email, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -43,11 +43,11 @@ public class Tenant implements Observer {
         this.lastName = lastName;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -84,6 +84,12 @@ public class Tenant implements Observer {
 
     @Override
     public String toString() {
-        return "Tenant{" + "tenantId=" + tenantId + ", firstName='" + firstName + '\'' + ", lastName='" + lastName + '\'' + ", phoneNumber='" + phoneNumber + '\'' + ", email='" + email + '\'' + '}';
+        return "Tenant {" +
+                "ID=" + tenantId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\''
+                + '}';
     }
 }

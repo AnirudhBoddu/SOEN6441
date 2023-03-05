@@ -22,7 +22,7 @@ class TenantControllerTest {
         tenants = new ArrayList<>();
         String firstName = "John";
         String lastName = "Doe";
-        int phoneNumber = 1234567890;
+        String phoneNumber = "1234567890";
         String email = "johndoe@example.com";
         tenant = new Tenant(firstName, lastName, email, phoneNumber);
         dbInstance.addTenant(tenant);
@@ -30,7 +30,7 @@ class TenantControllerTest {
 
         firstName = "Jane";
         lastName = "Doe";
-        phoneNumber = 987654321;
+        phoneNumber = "987654321";
         email = "janedoe@example.com";
         tenant = new Tenant(firstName, lastName, email, phoneNumber);
         dbInstance.addTenant(tenant);

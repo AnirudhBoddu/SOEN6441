@@ -80,8 +80,8 @@ public class Lease {
 
     @Override
     public String toString() {
-        return "Lease{" +
-                "leaseId=" + leaseId +
+        return "Lease {" +
+                "ID=" + leaseId +
                 ", tenant=" + tenant +
                 ", property=" + property +
                 ", rentAmount=" + rentAmount +

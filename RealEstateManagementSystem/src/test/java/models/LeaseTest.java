@@ -19,7 +19,7 @@ public class LeaseTest {
         Address address = new Address(123, "Main St", "AnyCity", "NS", "12345");
         PropertySpecification propertySpec = new PropertySpecification(2, 1, 1350);
         property = new House(null, address, propertySpec, 2000);
-        tenant = new Tenant("John", "Doe", "johndoe@gmail.com", 1234567890);
+        tenant = new Tenant("John", "Doe", "johndoe@gmail.com", "1234567890");
         LocalDate startDate = LocalDate.now();
         LocalDate endDate = startDate.plusYears(1); // One year from startDate
         lease = new Lease(tenant, property, 2000.0, startDate, endDate);

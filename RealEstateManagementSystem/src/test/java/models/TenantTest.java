@@ -14,7 +14,7 @@ public class TenantTest {
 
     @BeforeEach
     public void setUp() {
-        tenant = new Tenant("John", "Doe", "johndoe@example.com", 5555555);
+        tenant = new Tenant("John", "Doe", "johndoe@example.com", "5555555");
         dbInstance.getTenants().clear();
     }
 
@@ -29,7 +29,7 @@ public class TenantTest {
         assertEquals("Smith", tenant.getLastName());
 
         assertEquals("555-5555", tenant.getPhoneNumber());
-        tenant.setPhoneNumber(1234567);
+        tenant.setPhoneNumber("1234567");
         assertEquals("123-4567", tenant.getPhoneNumber());
 
         assertEquals("johndoe@example.com", tenant.getEmail());
