@@ -5,12 +5,13 @@ import main.java.models.House;
 import main.java.models.Property;
 import main.java.models.PropertySpecification;
 import main.java.services.HouseFactory;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class HouseFactoryTest {
 
@@ -21,7 +22,7 @@ public class HouseFactoryTest {
     private PropertySpecification propertySpecification;
     private double rentAmount;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         houseFactory = new HouseFactory();
         civicAddress = "123 Main St.";
@@ -32,7 +33,7 @@ public class HouseFactoryTest {
         property = houseFactory.createProperty(civicAddress, address, propertySpecification, null, rentAmount);
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         houseFactory = null;
     }

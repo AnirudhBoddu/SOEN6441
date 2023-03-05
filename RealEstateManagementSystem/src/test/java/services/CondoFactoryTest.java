@@ -5,12 +5,13 @@ import main.java.models.Condo;
 import main.java.models.Property;
 import main.java.models.PropertySpecification;
 import main.java.services.CondoFactory;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class CondoFactoryTest {
 
@@ -18,7 +19,7 @@ public class CondoFactoryTest {
     private PropertySpecification propertySpecification;
     private Property property;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         CondoFactory condoFactory = new CondoFactory();
         address = new Address(321, "Queen St.", "Montreal", "QC", "H3X2V2");
@@ -29,7 +30,7 @@ public class CondoFactoryTest {
         property = condoFactory.createProperty(civicAddress, address, propertySpecification, unitNum, rent);
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         property = null;
         propertySpecification = null;
