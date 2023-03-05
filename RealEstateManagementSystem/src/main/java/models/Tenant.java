@@ -59,7 +59,7 @@ public class Tenant implements Observer {
 
     @Override
     public void update(Subject subject) {
-        String msg = (String) subject.getUpdate(this);
+        String msg = subject.getUpdate();
         if (msg == null) {
             System.out.println(firstName + ":: No new message");
         } else System.out.println(firstName + ":: Consuming message::" + msg);

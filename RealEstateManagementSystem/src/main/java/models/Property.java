@@ -107,7 +107,7 @@ public abstract class Property implements Subject {
     }
 
     @Override
-    public Object getUpdate(Observer obj) {
+    public String getUpdate() {
         return this.message;
     }
 
