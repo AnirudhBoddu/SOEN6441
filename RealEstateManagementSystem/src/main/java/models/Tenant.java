@@ -11,14 +11,12 @@ public class Tenant implements Observer {
     private String lastName;
     private String email;
     private String phoneNumber;
-    private List<Subject> registeredProperties;
 
     public Tenant(String firstName, String lastName, String email, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        registeredProperties = new ArrayList<>();
         tenantId = ++counter;
     }
 
@@ -60,26 +58,11 @@ public class Tenant implements Observer {
     }
 
     @Override
-    public void update() {
-        for (Subject sub : registeredProperties) {
-            String msg = (String) sub.getUpdate(this);
-            if (msg == null) {
-                System.out.println(firstName + ":: No new message");
-            } else System.out.println(firstName + ":: Consuming message::" + msg);
-        }
-    }
-
-    @Override
-    public void update(Property p) {
-        String msg = (String) p.getUpdate(this);
+    public void update(Subject subject) {
+        String msg = (String) subject.getUpdate(this);
         if (msg == null) {
             System.out.println(firstName + ":: No new message");
         } else System.out.println(firstName + ":: Consuming message::" + msg);
-    }
-
-    @Override
-    public void setSubject(Subject sub) {
-        this.registeredProperties.add(sub);
     }
 
     @Override

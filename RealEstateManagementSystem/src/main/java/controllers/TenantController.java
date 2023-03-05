@@ -45,6 +45,10 @@ public class TenantController {
 
     public void displayTenants() {
         List<Tenant> listOfTenants = Database.getInstance().getTenants();
+        if(listOfTenants.isEmpty()){
+            System.out.println("The are no registered tenants.");
+            return;
+        }
         for (Tenant tenant : listOfTenants) {
             System.out.println(tenant.toString());
         }

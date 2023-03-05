@@ -97,14 +97,16 @@ public class PropertyController {
         Tenant observer = Database.getInstance().getTenantById(tenantID);
 
         observable.register(observer);
-        observer.setSubject(observable);
-        observer.update();
     }
 
     // Method
     // Display all properties in the database
     public void displayProperties() {
         List<Property> listOfProperties = Database.getInstance().getProperties();
+        if(listOfProperties.isEmpty()){
+            System.out.println("The are no registered properties.");
+            return;
+        }
         for (Property p : listOfProperties) {
             System.out.println(p);
         }

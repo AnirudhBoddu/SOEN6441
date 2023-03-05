@@ -7,7 +7,9 @@ import main.java.models.Tenant;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -30,6 +32,17 @@ public class LeaseController {
     public void rentUnit() {
         while (true) {
             try {
+                // Test for existing properties and tenants
+                if(Database.getInstance().getProperties().isEmpty()){
+                    System.out.println("There are no properties available for rent.");
+                    return;
+                }
+                if(Database.getInstance().getTenants().isEmpty()){
+                    System.out.println("There are no registered tenants, please register a new tenant and try again.");
+                    return;
+                }
+
+                // Request user for property id
                 System.out.println("Please enter Property ID");
                 int propertyId = input.nextInt();
 
@@ -39,6 +52,9 @@ public class LeaseController {
                     System.out.println("Please enter Tenant ID");
                     int tenantId = input.nextInt();
                     Tenant tenant = Database.getInstance().getTenantById(tenantId);
+                    Exception NullPointerException = new NullPointerException();
+                    if(tenant.equals(null)) throw NullPointerException;
+
                     System.out.println("Please enter Start Date - dd/MM/yyyy");
                     LocalDate startDate = LocalDate.parse(input.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
@@ -53,9 +69,12 @@ public class LeaseController {
                     System.out.println("Sorry! This property is occupied");
                     break;
                 }
+            } catch (NullPointerException e){
+                System.out.println("The id provided does not exist.");
+                input.nextLine();
             } catch (Exception e) {
-                System.out.println("The date format you've entered is incorrect, please try again");
-                input.next();
+                System.out.println("The format you've entered is incorrect, please try again");
+                input.nextLine();
             }
         }
     }
