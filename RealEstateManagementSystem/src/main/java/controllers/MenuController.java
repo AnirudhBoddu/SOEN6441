@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class MenuController {
 
-    private static Scanner input = new Scanner(System.in);
+    private static final Scanner input = new Scanner(System.in);
     private static MenuController instance = new MenuController();
 
     // Singleton
@@ -40,7 +40,6 @@ public class MenuController {
         System.out.print("Please enter your choice (1-14): ");
     }
 
-    // TODO SHAFIQ
     // Create infinte loop with proper break to exit system
     public void runMenu() {
         int userInput = 0;
@@ -97,6 +96,7 @@ public class MenuController {
             }
         } while (userInput != 14);
         System.out.println("Thanks!");
+        System.exit(0);
     }
 
     private void addProperty() {
@@ -114,7 +114,6 @@ public class MenuController {
     private void registerTenantToProperty() {
         PropertyController.getInstance().registerTenantToProperty();
     }
-
 
     private void displayProperties() {
         PropertyController.getInstance().displayProperties();
