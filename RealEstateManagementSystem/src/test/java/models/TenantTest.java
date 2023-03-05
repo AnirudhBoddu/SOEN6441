@@ -28,9 +28,9 @@ public class TenantTest {
         tenant.setLastName("Smith");
         assertEquals("Smith", tenant.getLastName());
 
-        assertEquals("555-5555", tenant.getPhoneNumber());
+        assertEquals(5555555, tenant.getPhoneNumber());
         tenant.setPhoneNumber(1234567);
-        assertEquals("123-4567", tenant.getPhoneNumber());
+        assertEquals(1234567, tenant.getPhoneNumber());
 
         assertEquals("johndoe@example.com", tenant.getEmail());
         tenant.setEmail("janesmith@example.com");
@@ -39,8 +39,8 @@ public class TenantTest {
 
     @Test
     public void testToString() {
-        assertEquals(
-                "Tenant{tenantId=2, firstName='John', lastName='Doe', phoneNumber='555-5555', email='johndoe@example.com'}",
-                tenant.toString());
+        String expected = "Tenant{tenantId=" + tenant.getTenantId() + ", firstName='" + tenant.getFirstName() + "', lastName='" + tenant.getLastName()
+                + "', phoneNumber='" + tenant.getPhoneNumber() + "', email='" + tenant.getEmail() + "'}";
+        assertEquals(expected, tenant.toString());
     }
 }

@@ -1,12 +1,12 @@
 package test.java.models;
 
 import main.java.models.*;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class LeaseTest {
 
@@ -14,7 +14,7 @@ public class LeaseTest {
     private Property property;
     private Lease lease;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         Address address = new Address(123, "Main St", "AnyCity", "NS", "12345");
         PropertySpecification propertySpec = new PropertySpecification(2, 1, 1350);
