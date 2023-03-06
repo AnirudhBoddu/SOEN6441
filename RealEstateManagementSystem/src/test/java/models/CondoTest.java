@@ -32,7 +32,7 @@ public class CondoTest {
 
     @Test
     public void testToString() {
-        String expected = "Property {ID=1, civicAddress='1234 Main St, Vancouver, BC, V6B 2T4', address='1234 Main St, Vancouver, BC, V6B 2T4', specs={numBedrooms=2, numBathrooms=2, squareFootage=800} , rent=2000.0}";
+        String expected = "Property {ID="+condo.getPropertyId()+", civicAddress='1234 Main St, Vancouver, BC, V6B 2T4', address='1234 Main St, Vancouver, BC, V6B 2T4', specs={numBedrooms=2, numBathrooms=2, squareFootage=800} , rent=2000.0}";
         assertEquals(expected, condo.toString());
     }
 }
