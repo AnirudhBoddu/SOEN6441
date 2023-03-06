@@ -39,7 +39,7 @@ public class TenantTest {
 
     @Test
     public void testToString() {
-        String expected = "Tenant{tenantId=" + tenant.getTenantId() + ", firstName='" + tenant.getFirstName() + "', lastName='" + tenant.getLastName()
+        String expected = "Tenant {ID=" + tenant.getTenantId() + ", firstName='" + tenant.getFirstName() + "', lastName='" + tenant.getLastName()
                 + "', phoneNumber='" + tenant.getPhoneNumber() + "', email='" + tenant.getEmail() + "'}";
         assertEquals(expected, tenant.toString());
     }

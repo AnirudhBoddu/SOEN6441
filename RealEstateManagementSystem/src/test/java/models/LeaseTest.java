@@ -99,7 +99,7 @@ public class LeaseTest {
 
     @Test
     public void testToString() {
-        String expected = "Lease{leaseId=" + lease.getLeaseId() + ", tenant=" + tenant + ", property=" + property
+        String expected = "Lease {ID=" + lease.getLeaseId() + ", tenant=" + tenant + ", property=" + property
                 + ", rentAmount=" + lease.getRentAmount() + ", startDate=" + lease.getStartDate() + ", endDate="
                 + lease.getEndDate() + ", isActive=false}";
         assertEquals(expected, lease.toString());
