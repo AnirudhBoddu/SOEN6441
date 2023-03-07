@@ -4,13 +4,21 @@ import main.java.models.Address;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 public class AddressTest {
     private Address address;
+    private Address address1 = new Address(1234, "Main St", "Vancouver", "BC", "V5V 2L3");
+
 
     @BeforeEach
     public void setUp() {
-        address = new Address(1234, "Main St", "Vancouver", "BC", "V5V 2L3");
+        address = Mockito.mock(Address.class);
+        Mockito.when(address.getStreetNumber()).thenReturn(1234);
+        Mockito.when(address.getStreetName()).thenReturn("Main St");
+        Mockito.when(address.getCity()).thenReturn("Vancouver");
+        Mockito.when(address.getProvince()).thenReturn("BC");
+        Mockito.when(address.getPostalCode()).thenReturn("V5V 2L3");
     }
 
     @Test
@@ -24,22 +32,23 @@ public class AddressTest {
 
     @Test
     public void testSetters() {
-        address.setStreetNumber(5678);
-        address.setStreetName("Oak St");
-        address.setCity("Burnaby");
-        address.setProvince("BC");
-        address.setPostalCode("V5G 3L4");
+        address1.setStreetNumber(5678);
+        address1.setStreetName("Oak St");
+        address1.setCity("Burnaby");
+        address1.setProvince("BC");
+        address1.setPostalCode("V5G 3L4");
 
-        Assertions.assertEquals(5678, address.getStreetNumber());
-        Assertions.assertEquals("Oak St", address.getStreetName());
-        Assertions.assertEquals("Burnaby", address.getCity());
-        Assertions.assertEquals("BC", address.getProvince());
-        Assertions.assertEquals("V5G 3L4", address.getPostalCode());
+        Assertions.assertEquals(5678, address1.getStreetNumber());
+        Assertions.assertEquals("Oak St", address1.getStreetName());
+        Assertions.assertEquals("Burnaby", address1.getCity());
+        Assertions.assertEquals("BC", address1.getProvince());
+        Assertions.assertEquals("V5G 3L4", address1.getPostalCode());
     }
+
 
     @Test
     public void testToString() {
         String expected = "'1234 Main St, Vancouver, BC, V5V 2L3'";
-        Assertions.assertEquals(expected, address.toString());
+        Assertions.assertEquals(expected, address1.toString());
     }
 }
