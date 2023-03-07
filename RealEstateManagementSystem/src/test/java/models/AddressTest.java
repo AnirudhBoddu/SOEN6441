@@ -8,12 +8,13 @@ import org.mockito.Mockito;
 
 public class AddressTest {
     private Address address;
-    private Address address1 = new Address(1234, "Main St", "Vancouver", "BC", "V5V 2L3");
+    private Address address1;
 
 
     @BeforeEach
     public void setUp() {
         address = Mockito.mock(Address.class);
+        address1 = new Address(1234, "Main St", "Vancouver", "BC", "V5V 2L3");
         Mockito.when(address.getStreetNumber()).thenReturn(1234);
         Mockito.when(address.getStreetName()).thenReturn("Main St");
         Mockito.when(address.getCity()).thenReturn("Vancouver");
