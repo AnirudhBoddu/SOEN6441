@@ -75,16 +75,6 @@ public class LeaseTest {
         assertEquals(newEndDate, lease.getEndDate());
     }
 
-    @Test
-    public void testGetActive() {
-        assertFalse(lease.getActive());
-    }
-
-    @Test
-    public void testSetActive() {
-        lease.setActive(true);
-        assertTrue(lease.getActive());
-    }
 
     @Test
     public void testIsPaid() {
@@ -101,7 +91,7 @@ public class LeaseTest {
     public void testToString() {
         String expected = "Lease {ID=" + lease.getLeaseId() + ", tenant=" + tenant + ", property=" + property
                 + ", rentAmount=" + lease.getRentAmount() + ", startDate=" + lease.getStartDate() + ", endDate="
-                + lease.getEndDate() + ", isActive=false}";
+                + lease.getEndDate() + "}";
         assertEquals(expected, lease.toString());
     }
 

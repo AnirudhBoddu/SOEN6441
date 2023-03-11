@@ -122,4 +122,14 @@ public class Database {
         this.payments = payments;
     }
 
+    public void clearData(){
+        properties = new ArrayList<>();
+
+        tenants = new ArrayList<>();
+
+        leases = new ArrayList<>();
+
+        payments = new ArrayList<>();
+    }
+
 }

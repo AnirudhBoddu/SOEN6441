@@ -10,8 +10,6 @@ public class Lease {
     private double rentAmount;
     private LocalDate startDate;
     private LocalDate endDate;
-    private Boolean isActive;
-
     private Boolean isPaid;
 
     public Lease(Tenant tenant, Property property, double rentAmount, LocalDate startDate, LocalDate endDate) {
@@ -20,7 +18,6 @@ public class Lease {
         this.rentAmount = rentAmount;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.isActive = false;
         leaseId = ++counter;
         isPaid = false;
     }
@@ -62,14 +59,6 @@ public class Lease {
         this.endDate = endDate;
     }
 
-    public Boolean getActive() {
-        return isActive;
-    }
-
-    public void setActive(Boolean active) {
-        isActive = active;
-    }
-
     public boolean isPaid() {
         return isPaid;
     }
@@ -87,7 +76,6 @@ public class Lease {
                 ", rentAmount=" + rentAmount +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
-                ", isActive=" + isActive +
                 '}';
     }
 }

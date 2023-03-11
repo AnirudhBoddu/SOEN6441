@@ -26,6 +26,7 @@ class PropertyControllerTest {
 
     @BeforeEach
     public void setup() {
+        dbInstance.clearData();
         Property property;
         properties = new ArrayList<>();
         propertyFactory = new HouseFactory();
@@ -75,10 +76,6 @@ class PropertyControllerTest {
      **/
     @AfterEach
     public void tearDown() {
-        propertyFactory = null;
-        address = null;
-        propertySpec = null;
-        properties = null;
-        dbInstance.getProperties().clear();
+        dbInstance.clearData();
     }
 }
