@@ -39,7 +39,7 @@ public class MenuController {
         System.out.print("Please enter your choice (1-14): ");
     }
 
-    // Create infinte loop with proper break to exit system
+    // Create infinite loop with proper break to exit system
     public void runMenu() {
         int userInput = 0;
         do {
