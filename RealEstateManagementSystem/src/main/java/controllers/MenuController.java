@@ -5,7 +5,6 @@ import main.java.util.Helper;
 import java.util.Scanner;
 
 public class MenuController {
-
     private static final Scanner input = new Scanner(System.in);
     private static MenuController instance = new MenuController();
 
@@ -49,50 +48,21 @@ public class MenuController {
             else input.next();
 
             switch (userInput) {
-                case 1:
-                    MenuController.getInstance().addProperty();
-                    break;
-                case 2:
-                    MenuController.getInstance().addTenant();
-                    break;
-                case 3:
-                    MenuController.getInstance().rentUnit();
-                    break;
-                case 4:
-                    MenuController.getInstance().registerTenantToProperty();
-                    break;
-                case 5:
-                    MenuController.getInstance().displayProperties();
-                    break;
-                case 6:
-                    MenuController.getInstance().displayTenants();
-                    break;
-                case 7:
-                    MenuController.getInstance().displayRentedUnits();
-                    break;
-                case 8:
-                    MenuController.getInstance().displayVacantUnits();
-                    break;
-                case 9:
-                    MenuController.getInstance().displayLeases();
-                    break;
-                case 10:
-                    MenuController.getInstance().displayUnpaidLeases();
-                    break;
-                case 11:
-                    MenuController.getInstance().payRent();
-                    break;
-                case 12:
-                    MenuController.getInstance().terminateLease();
-                    break;
-                case 13:
-                    MenuController.getInstance().populateFromCSV();
-                    break;
-                case 14:
-                    System.out.println("Exiting the program...");
-                    break;
-                default:
-                    System.out.println("Invalid choice. Please select a valid option.");
+                case 1 -> MenuController.getInstance().addProperty();
+                case 2 -> MenuController.getInstance().addTenant();
+                case 3 -> MenuController.getInstance().rentUnit();
+                case 4 -> MenuController.getInstance().registerTenantToProperty();
+                case 5 -> MenuController.getInstance().displayProperties();
+                case 6 -> MenuController.getInstance().displayTenants();
+                case 7 -> MenuController.getInstance().displayRentedUnits();
+                case 8 -> MenuController.getInstance().displayVacantUnits();
+                case 9 -> MenuController.getInstance().displayLeases();
+                case 10 -> MenuController.getInstance().displayUnpaidLeases();
+                case 11 -> MenuController.getInstance().payRent();
+                case 12 -> MenuController.getInstance().terminateLease();
+                case 13 -> MenuController.getInstance().populateFromCSV();
+                case 14 -> System.out.println("Exiting the program...");
+                default -> System.out.println("Invalid choice. Please select a valid option.");
             }
         } while (userInput != 14);
         System.out.println("Thanks!");
