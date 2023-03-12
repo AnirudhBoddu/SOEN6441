@@ -1,31 +1,29 @@
 package test.java.controllers;
 
 import main.java.Database;
+import main.java.controllers.LeaseController;
 import main.java.models.*;
 import main.java.services.HouseFactory;
 import main.java.services.PropertyFactory;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import main.java.controllers.LeaseController;
-import static org.junit.jupiter.api.Assertions.*;
-
-import javax.xml.crypto.Data;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.io.PrintStream;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 
 class LeaseControllerTest {
 
+    private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
     private PropertyFactory propertyFactory;
     private Address address;
     private PropertySpecification propertySpec;
     private Database dbInstance = Database.getInstance();
-    private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
     private Lease newLease;
 
     @BeforeEach
@@ -61,13 +59,10 @@ class LeaseControllerTest {
         dbInstance.addTenant(tenant);
 
 
-
         Property p = dbInstance.getProperties().get(0);
         Tenant t = dbInstance.getTenants().get(0);
 
-        newLease = new Lease(t, p,
-                p.getRentAmount(), LocalDate.of(2020,1,1),
-                LocalDate.of(2026,1,1));
+        newLease = new Lease(t, p, p.getRentAmount(), LocalDate.of(2020, 1, 1), LocalDate.of(2026, 1, 1));
 
         dbInstance.addLease(newLease);
 
@@ -75,7 +70,8 @@ class LeaseControllerTest {
     }
 
     // System.setOut will catch the system out printed and put into the variable (typeOut).
-    // The reason we take System.out is that we need to have it to check the correct response from the program is printed
+    // The reason we take System.out is that we need to have it to check the correct response from the program is
+    // printed
     @AfterEach
     void tearDown() {
         dbInstance.clearData();
@@ -95,7 +91,7 @@ class LeaseControllerTest {
         dbInstance.addLease(newLease);
 
         Lease leaseInDb = dbInstance.getLeases().get(0);
-        assertEquals(leaseInDb,newLease);
+        assertEquals(leaseInDb, newLease);
 
     }
 
@@ -103,15 +99,13 @@ class LeaseControllerTest {
     void displayRentedUnits() {
 
 
-
         String simulatedUserInput = "7" + System.getProperty("line.separator");
 
         System.setIn(new ByteArrayInputStream(simulatedUserInput.getBytes()));
         System.setOut(new PrintStream(outputStreamCaptor));
         LeaseController.getInstance().displayRentedUnits();
-        assertEquals("Rented Units:\n" +
-                "null - '123 Main St, Anytown, Anystate, 12345'", outputStreamCaptor.toString()
-                .trim());
+        assertEquals("Rented Units:\r\n" + "null - '123 Main St, Anytown, Anystate, 12345'",
+                outputStreamCaptor.toString().trim());
     }
 
     @Test
@@ -123,10 +117,10 @@ class LeaseControllerTest {
         System.setOut(new PrintStream(outputStreamCaptor));
         LeaseController.getInstance().displayVacantUnits();
 
-        assertEquals("Vacant Properties:\n" +
-                "null - '123 Main St, Anytown, Anystate, 12345'\n" +
-                "null - '321 Oak St, Anytown, Anystate, 67891'", outputStreamCaptor.toString()
-                .trim());
+        assertEquals("""
+                Vacant Properties:\r
+                null - '123 Main St, Anytown, Anystate, 12345'\r
+                null - '321 Oak St, Anytown, Anystate, 67891'""", outputStreamCaptor.toString().trim());
     }
 
     @Test
@@ -138,9 +132,11 @@ class LeaseControllerTest {
         System.setOut(new PrintStream(outputStreamCaptor));
         LeaseController.getInstance().displayAllLeases();
 
-        assertEquals("All Leases:\n" +
-                "Lease {ID=7, tenant=Tenant {ID=13, firstName='John', lastName='Doe', phoneNumber='1234567890', email='johndoe@example.com'}, property=Property {ID=19, civicAddress='null', address='123 Main St, Anytown, Anystate, 12345', specs={numBedrooms=2, numBathrooms=1, squareFootage=1500} , rent=1350.0}, rentAmount=1350.0, startDate=2020-01-01, endDate=2026-01-01}", outputStreamCaptor.toString()
-                .trim());
+        assertEquals("All Leases:\r\n" + "Lease {ID=7, tenant=Tenant {ID=13, firstName='John', lastName='Doe', " +
+                "phoneNumber='1234567890', " + "email='johndoe@example.com'}, property=Property {ID=19, " +
+                "civicAddress='null', address='123 Main St, " + "Anytown, Anystate, 12345', specs={numBedrooms=2, " +
+                "numBathrooms=1, squareFootage=1500} , rent=1350.0}, " + "rentAmount=1350.0, startDate=2020-01-01, " +
+                "endDate=2026-01-01}", outputStreamCaptor.toString().trim());
     }
 
     @Test
@@ -151,14 +147,17 @@ class LeaseControllerTest {
         System.setOut(new PrintStream(outputStreamCaptor));
         LeaseController.getInstance().displayUnpaidLeases();
 
-        assertEquals("Unpaid Leases:\n" +
-                "Lease {ID=9, tenant=Tenant {ID=15, firstName='John', lastName='Doe', phoneNumber='1234567890', email='johndoe@example.com'}, property=Property {ID=23, civicAddress='null', address='123 Main St, Anytown, Anystate, 12345', specs={numBedrooms=2, numBathrooms=1, squareFootage=1500} , rent=1350.0}, rentAmount=1350.0, startDate=2020-01-01, endDate=2026-01-01}", outputStreamCaptor.toString()
-                .trim());
+        assertEquals("Unpaid Leases:\r\n" + "Lease {ID=9, tenant=Tenant {ID=15, firstName='John', lastName='Doe', " +
+                "phoneNumber='1234567890'," + " email='johndoe@example.com'}, property=Property {ID=23, " +
+                "civicAddress='null', address='123 Main St," + " Anytown, Anystate, 12345', specs={numBedrooms=2, " +
+                "numBathrooms=1, squareFootage=1500} , rent=1350.0}," + " rentAmount=1350.0, startDate=2020-01-01, " +
+                "endDate=2026-01-01}", outputStreamCaptor.toString().trim());
     }
 
     @Test
     void terminateLeaseById() {
-        String simulatedUserInput = "12" + System.getProperty("line.separator") + "9" + System.getProperty("line.separator");
+        String simulatedUserInput = "12" + System.getProperty("line.separator") + "9" + System.getProperty("line" +
+                ".separator");
 
         System.setIn(new ByteArrayInputStream(simulatedUserInput.getBytes()));
         System.setOut(new PrintStream(outputStreamCaptor));
