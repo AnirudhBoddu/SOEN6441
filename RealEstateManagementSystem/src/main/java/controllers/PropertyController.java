@@ -16,8 +16,8 @@ import java.util.Scanner;
 
 public class PropertyController {
 
-    private static PropertyController instance = new PropertyController();
     private static final Scanner input = new Scanner(System.in);
+    private static PropertyController instance = new PropertyController();
 
     // Singleton
     private PropertyController() {
@@ -98,7 +98,8 @@ public class PropertyController {
         Tenant observer = Database.getInstance().getTenantById(tenantID);
 
         observable.register(observer);
-        System.out.println(observer.getFirstName() + " subscribed to " + observable.getCivicAddress() + " - " + observable.getAddress());
+        System.out.println(observer.getFirstName() + " subscribed to " + observable.getCivicAddress()
+                + " - " + observable.getAddress());
     }
 
     // Method

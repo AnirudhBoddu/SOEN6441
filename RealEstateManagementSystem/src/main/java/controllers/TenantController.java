@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class TenantController {
 
     private static TenantController instance = new TenantController();
-    private static Scanner input = new Scanner(System.in);
+    private static final Scanner input = new Scanner(System.in);
 
     // Singleton
     private TenantController() {
@@ -31,7 +31,6 @@ public class TenantController {
         System.out.println("Please enter phone number:");
         String phoneNumber = input.next();
 
-
         Tenant tenant = new Tenant(firstName, lastName, email, phoneNumber);
         Database.getInstance().addTenant(tenant);
     }
@@ -45,7 +44,7 @@ public class TenantController {
 
     public void displayTenants() {
         List<Tenant> listOfTenants = Database.getInstance().getTenants();
-        if(listOfTenants.isEmpty()){
+        if (listOfTenants.isEmpty()) {
             System.out.println("The are no registered tenants.");
             return;
         }
