@@ -17,7 +17,7 @@ import java.util.Scanner;
 public class PropertyController {
 
     private static PropertyController instance = new PropertyController();
-    private static Scanner input = new Scanner(System.in);
+    private static final Scanner input = new Scanner(System.in);
 
     // Singleton
     private PropertyController() {
@@ -58,29 +58,30 @@ public class PropertyController {
         Helper.checkDouble(input);
         double rentAmount = input.nextDouble();
 
-        PropertySpecification propertySpecification = new PropertySpecification(numBedrooms, numBathrooms, squareFootage);
+        PropertySpecification propertySpecification = new PropertySpecification(numBedrooms, numBathrooms,
+                squareFootage);
 
         PropertyFactory propertyFactory;
         String unitNum = null;
         switch (propertyType) {
-            case 1:
-                propertyFactory = new HouseFactory();
-                break;
-            case 2:
+            case 1 -> propertyFactory = new HouseFactory();
+            case 2 -> {
                 propertyFactory = new CondoFactory();
                 System.out.println("Please enter the unit number:");
                 unitNum = input.next();
-                break;
-            case 3:
+            }
+            case 3 -> {
                 propertyFactory = new ApartmentFactory();
                 System.out.println("Please enter the apartment number:");
                 unitNum = input.next();
-                break;
-            default:
+            }
+            default -> {
                 System.out.println("Invalid property type selected.");
                 return;
+            }
         }
-        Property property = propertyFactory.createProperty(civicAddress, address, propertySpecification, unitNum, rentAmount);
+        Property property = propertyFactory.createProperty(civicAddress, address, propertySpecification, unitNum,
+                rentAmount);
         Database.getInstance().addProperty(property);
     }
 
@@ -97,13 +98,14 @@ public class PropertyController {
         Tenant observer = Database.getInstance().getTenantById(tenantID);
 
         observable.register(observer);
+        System.out.println(observer.getFirstName() + " subscribed to " + observable.getCivicAddress() + " - " + observable.getAddress());
     }
 
     // Method
     // Display all properties in the database
     public void displayProperties() {
         List<Property> listOfProperties = Database.getInstance().getProperties();
-        if(listOfProperties.isEmpty()){
+        if (listOfProperties.isEmpty()) {
             System.out.println("The are no registered properties.");
             return;
         }

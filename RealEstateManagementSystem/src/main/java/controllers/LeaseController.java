@@ -7,16 +7,14 @@ import main.java.models.Tenant;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 public class LeaseController {
 
     private static LeaseController instance = new LeaseController();
-    private static Scanner input = new Scanner(System.in);
+    private static final Scanner input = new Scanner(System.in);
 
     // Singleton
     private LeaseController() {
@@ -33,27 +31,26 @@ public class LeaseController {
         while (true) {
             try {
                 // Test for existing properties and tenants
-                if(Database.getInstance().getProperties().isEmpty()){
+                if (Database.getInstance().getProperties().isEmpty()) {
                     System.out.println("There are no properties available for rent.");
                     return;
                 }
-                if(Database.getInstance().getTenants().isEmpty()){
+                if (Database.getInstance().getTenants().isEmpty()) {
                     System.out.println("There are no registered tenants, please register a new tenant and try again.");
                     return;
                 }
 
                 // Request user for property id
-                System.out.println("Please enter Property ID");
+                System.out.println("Please enter Property ID:");
                 int propertyId = input.nextInt();
 
                 Property unit = Database.getInstance().getPropertyById(propertyId);
 
                 if (!unit.isOccupied()) {
-                    System.out.println("Please enter Tenant ID");
+                    System.out.println("Please enter Tenant ID:");
                     int tenantId = input.nextInt();
                     Tenant tenant = Database.getInstance().getTenantById(tenantId);
-                    Exception NullPointerException = new NullPointerException();
-                    if(tenant.equals(null)) throw NullPointerException;
+                    if (tenant == null) throw new NullPointerException();
 
                     System.out.println("Please enter Start Date - dd/MM/yyyy");
                     LocalDate startDate = LocalDate.parse(input.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
@@ -69,7 +66,7 @@ public class LeaseController {
                     System.out.println("Sorry! This property is occupied");
                     break;
                 }
-            } catch (NullPointerException e){
+            } catch (NullPointerException e) {
                 System.out.println("The id provided does not exist.");
                 input.nextLine();
             } catch (Exception e) {
@@ -136,8 +133,7 @@ public class LeaseController {
         } else {
             System.out.println("Unpaid Leases:");
             for (Lease lease : leases) {
-                if (!lease.isPaid())
-                    System.out.println(lease.toString());
+                if (!lease.isPaid()) System.out.println(lease);
             }
         }
     }

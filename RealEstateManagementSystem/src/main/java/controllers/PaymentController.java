@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class PaymentController {
-    private static Scanner input = new Scanner(System.in);
+    private static final Scanner input = new Scanner(System.in);
     private static PaymentController instance = new PaymentController();
 
     private PaymentController() {
@@ -21,6 +21,13 @@ public class PaymentController {
             instance = new PaymentController();
         }
         return instance;
+    }
+
+    private static Date getFirstDateOfMonth(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.set(Calendar.DAY_OF_MONTH, cal.getActualMinimum(Calendar.DAY_OF_MONTH));
+        return cal.getTime();
     }
 
     public void createNewPayment() {
@@ -36,18 +43,10 @@ public class PaymentController {
         Date paidOn = sys.getTime();
         Date dueDate = getFirstDateOfMonth(sys.getTime());
 
+        System.out.println("Do you confirm the Tenant has paid all balances (please enter 1 or 2): \n1 - Yes\n2 - No");
+        if (input.nextInt() == 1) lease.setIsPaid(true);
+
         // Record payment in db
         Database.getInstance().addPayment(new Payment(lease, amount, tenant, dueDate, paidOn));
-
-        System.out.println("Do you confirm the Tenant has paid all balances (please enter 1 or 2): \n1 - Yes\n2 - No");
-        if (input.nextInt() == 1)
-            lease.setIsPaid(true);
-    }
-
-    private static Date getFirstDateOfMonth(Date date) {
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(date);
-        cal.set(Calendar.DAY_OF_MONTH, cal.getActualMinimum(Calendar.DAY_OF_MONTH));
-        return cal.getTime();
     }
 }
